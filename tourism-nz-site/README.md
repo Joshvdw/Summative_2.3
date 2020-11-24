@@ -3,16 +3,16 @@
 
 ## Table of contents
 
-1. [Statement](#1.Statement)
-2. [Variable](#Variables)
+1. [Statement](#1-statement)
+2. [Variables](#2-variables)
 3. [Comments](#3-comments)
-4. [Operators](#Operators)
-5. [Conditional-structure-if](#Conditional-structure-if)
-6. [Arrays / Objects](#Arrays-Objects)
-7. [Loops](#Loops)
-8. [Functions](#Functions)
-9. [Indentation / Spacing](#Indentation-Spacing)
-10. [Strings](#Strings)
+4. [Operators](#4-operators)
+5. [Conditional-structure-if](#5-conditional-structure-if)
+6. [Arrays / Objects](#6-arrays--objects)
+7. [Loops](#7-loops)
+8. [Functions](#8-functions)
+9. [Indentation / Spacing](#9-indentation--spacing)
+10. [Strings](#10-strings)
 
 ### 1. Statement
 *Use 1 space between operators and keywords*
