@@ -1,0 +1,303 @@
+// RESET
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// CLEARFIX
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+// VARIABLES
+
+// COLORS
+$primary-color: #F2B999;
+$secondary-color: #45718C;
+
+// FONTS
+$primary-font: 'Montserrat', 'sans-serif';
+
+// INHERITENCE
+text-shadow {
+  text-shadow: 2px 4px 4px rgba(0,0,0,0.25);
+}
+
+box-shadow {
+  box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+
+// BACKGROUND IMAGES
+#homepage, #accommodation-options, #accommodation-details, #booking-confirmation {
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+#homepage {
+  background-image:url("../images/backgrounds/homepage.jpg");
+}
+#accommodation-options {
+  background-image:url("../images/backgrounds/booking-page.jpg");
+}
+#accommodation-details {
+  background-image:url("../images/backgrounds/details-page.jpg");
+  // background-repeat: repeat-y;
+  height: 100%;
+}
+#booking-confirmation {
+  background-image:url("../images/backgrounds/confirmation-page.jpg");
+}
+
+body {
+  font-family: $primary-font;
+}
+
+// HOMEPAGE
+.homepage__heading {
+  padding-top: 250px;
+  font-family: 'Bebas Neue', 'cursive';
+  h1 {
+    font-size: 4.5vw;
+    letter-spacing: 3px;
+    @extend text-shadow
+  }
+}
+
+.date-guest__box {
+  background: rgba(0,0,0,0.25);
+  color: white;
+  width: 60%;
+  margin: 0 auto;
+  @extend box-shadow;
+  font-size: 0.75vw;
+}
+
+.date-container, .date-container__subcontainer  {
+  width: 50%;
+  float: left;
+}
+
+.date-container, guest-container {
+  padding: 20px 10px;
+}
+
+.homepage__input--btn {
+  background: white;
+  border-radius: 5px;
+  height: 50px;
+  width: 180px;
+  @extend box-shadow;
+  cursor: pointer;
+}
+
+.calender__icon, .guest__icon {
+  float: left;
+}
+
+.calender__date, .guest__dropdown {
+  float: right;
+}
+
+.guest-container {
+  width: 25%;
+  float: right;
+}
+
+// ACCOMMODATION OPTIONS PAGE
+
+.accommodation-options__container {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 75px;
+}
+
+.card {
+  @extend box-shadow;
+  border: none;
+  border-radius: 5px;
+  width: 23rem;
+  height: 250px;
+  float: left;
+}
+
+.card-body {
+  background-image:url("../images/accommodation/hostel-1.jpg");
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 165px 0 0 0;
+}
+
+.card-textbox {
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 85px;
+  padding: 5px;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: .25rem;
+}
+
+.card-text {
+  font-size: 10px;
+  margin-bottom: .5rem;
+
+}
+
+.details-btn__container {
+  float: left;
+}
+
+.price-textbox {
+  float: right;
+  font-weight: 500;
+}
+
+.accommodation-details__container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 75px;
+}
+
+.accommodation-details__subcontainer--left {
+  float: left;
+  width: 58%;
+  color: white;
+}
+
+.accommodation-details__subcontainer--description {
+  background: rgba(0,0,0,0.8);
+  // height: 500px;
+}
+.accommodation-details__subcontainer--facilities {
+  background: rgba(0,0,0,0.8);
+  height: 150px;
+}
+
+.accommodation-details__subcontainer--right {
+  float: right;
+  width: 40%;
+}
+
+.accommodation-details__subcontainer--images {
+  height: 300px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.facility-icon {
+  width: 12.5%;
+  float: left;
+}
+
+.booking-summary__container {
+  background: white;
+}
+
+.summary-item {
+  float: left;
+}
+
+// BUTTONS
+.search-btn {
+  margin: auto;
+  margin-top: 25px;
+  color: white;
+  background: $primary-color;
+  width: 180px;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 15px;
+  @extend box-shadow;
+  cursor: pointer;
+}
+
+.back-btn {
+  color: white;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+#details-btn {
+  color: white;
+  background: $primary-color;
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 9px;
+  padding-top: 5px;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.25);
+  cursor: pointer;
+  border: none;
+}
+
+.book-btn {
+  float: right;
+  background: $secondary-color;
+  color: white;
+  width: 40%;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 16px;
+  @extend box-shadow;
+  cursor: pointer;
+}
+
+// FOOTER
+.tourism__logo img {
+  width: 6%;
+  position: absolute;
+  top: 665px;
+  left: 15px;
+}
+
+.pure-nz__logo img {
+  width: 10%;
+  position: absolute;
+  top: 680px;
+  right: 15px;
+}
+
+
+
+
+
+
+
+
+
+// FONTS
+// @font-face {
+//   font-family: 'Milliard';
+//   src: url('Milliard-Black.woff2') format('woff2'),
+//       url('Milliard-Black.woff') format('woff');
+//   font-weight: 900;
+//   font-style: normal;
+//   font-display: swap;
+// }
+// $main-font: 'Poppins', sans-serif;
+// $book-font: 'Rambla', sans-serif;
