@@ -7,7 +7,7 @@
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- CDNS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/eggplant/jquery-ui.min.css" integrity="sha512-f8DSGsz24/tHdtize3J1T8ukPI7ya7T7l0infAkw/2LnVAgUr3QvEBNBhWgto/qFaxax2vtPZa39kLRpzjLJrA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/dark-hive/jquery-ui.min.css" integrity="sha512-Sg7rco5qUS4Y3wzqjxMhM5zj3DJuxnJAildKRzTIJeIdV8xSlIlFgngli3eOBq6Yv0kbz6IjdCvIpqu54d2YIA==" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- MY STYLE -->
     <link rel="stylesheet" href="css/style.css" >
@@ -24,18 +24,19 @@
       </div>
 
 <!-- DATE AND GUEST INPUT BOX -->
-      <div class="date-guest__box clearfix">
+      <div class="date-guest__box mt-5 clearfix rounded">
 
 <!-- CHECK IN PICKER -->
-        <div class="date-container">
-          <div class="date-container__subcontainer">
+        <div class="date-container py-4">
+          <div class="date-container__subcontainer pl-3">
             <p>CHECK IN</p>
-            <div class="check-in__calendar homepage__input--btn">
-              <div class="calender__icon">
-                <img src="images/icons/calender.png" alt="Calender Icon">
+            <div class="check-in__calendar homepage__input input-group mb-3">
+              <div class="calender__icon input-group-prepend">
+                <span class="input-group-text bg-white border-0" id="basic-addon1"><img src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
+              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="check-in" placeholder="26-11-2020" autocomplete="off" aria-describedby="basic-addon1">
               <div class="calender__date">
-                <p><input type="text" id="check-in"></p>
+                <!-- <p><input type="text" id="check-in"></p> -->
               </div>
             </div>
           </div>
@@ -43,44 +44,40 @@
 <!-- CHECK OUT PICKER -->
           <div class="date-container__subcontainer">
             <p>CHECK OUT</p>
-            <div class="check-out__calendar homepage__input--btn">
-              <div class="calender__icon">
-                <img src="images/icons/calender.png" alt="Calender Icon">
+            <div class="check-out__calendar homepage__input input-group mb-3">
+              <div class="calender__icon input-group-prepend">
+                <span class="input-group-text bg-white border-0" id="basic-addon2"><img src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
+              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="check-out" placeholder="26-11-2020" autocomplete="off" aria-describedby="basic-addon1">
               <div class="calender__date">
-                <input type="text" id="check-out">
+                <!-- <input type="text" id="check-out"> -->
               </div>
             </div>
           </div>
         </div>
 
 <!-- GUEST PICKER -->
-        <div class="guest-container">
+        <div class="guest-container py-4">
           <p>GUESTS</p>
-          <div class="guest__btn homepage__input--btn">
-            <div class="guest__icon">
-              <img src="images/icons/guests.png" alt="Guests Icon">
+          <div class="guest__btn homepage__input mb-3">
+            <div class="guest__icon input-group-prepend">
+              <span class="input-group-text bg-white border-0" id="basic-addon3"><img src="images/icons/guests.png" alt="Guests Icon"></span>
             </div>
-            <div class="guest__dropdown" id="guests-btn">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  2 Guests
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">1 Guest</a>
-                  <a class="dropdown-item" href="#">2 Guests</a>
-                  <a class="dropdown-item" href="#">3 Guests</a>
-                  <a class="dropdown-item" href="#">4 Guests</a>
-                  <a class="dropdown-item" href="#">5 Guests</a>
-                </div>
-              </div>
+            <div class="float-right w-75">
+              <select class="form-control border-0 homepage__input--btn w-100" id="sel1">
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+                <option>5 Guests</option>
+              </select>
             </div>
           </div>
         </div>
       </div>
 
       <!-- SEARCH BUTTON -->
-      <div class="search-btn" id="search-btn">
+      <div class="search-btn mt-5" id="search-btn">
         <p>SEARCH</p>
       </div>
     </div>
@@ -125,10 +122,10 @@
           <div class="accommodation-details__subcontainer--left">
 
             <!-- DESCRIPTION -->
-            <div class="accommodation-details__subcontainer--description">
-              <h2>ADVENTURE QUEENSTOWN HOSTEL</h2>
-              <hr>
-              <p>Welcome to Adventure Queenstown Hostel.</p>
+            <div class="accommodation-details__subcontainer--description p-3 rounded-top">
+              <h2 class="display-4 font-weight-bold mb-4">ADVENTURE QUEENSTOWN HOSTEL</h2>
+              <hr class="bg-white w-75">
+              <p class="pt-2">Welcome to Adventure Queenstown Hostel.</p>
               <p>Catering to independent travellers from around the world we offer mostly shared room accommodation and run in-house activities 5 nights a week to make it easy to meet fellow explorers from all around the world.</p>
               <p>There is a tour desk where our friendly staff can help you plan your activities, as well as a separate storage/locker room with secure bicycle parking and ski & snowboard storage. We offer loads of free stuff and even a simple laundry service.</p>
               <p>We’re a smaller hostel with a maximum capacity of just 43 people - the perfect number for keeping a family atmosphere which is still fun and vibrant.</p>
@@ -136,45 +133,45 @@
             </div>
 
             <!-- FACILITIES -->
-            <div class="accommodation-details__subcontainer--facilities">
-              <h3>FACILITIES</h3>
+            <div class="accommodation-details__subcontainer--facilities p-3 mt-4 rounded-bottom text-center">
+              <h3 class="text-left mb-4">FACILITIES</h3>
               <div class="wifi-icon facility-icon">
-                <img src="images/icons/wifi.png" alt="Wifi Icon">
+                <img class=" mb-2" src="images/icons/wifi.png" alt="Wifi Icon">
                 <p>Wi fi</p>
               </div>
               <div class="washing-icon facility-icon">
-                <img src="images/icons/washing.png" alt="Washing Icon">
+                <img class=" mb-2" src="images/icons/washing.png" alt="Washing Icon">
                 <p>Washing</p>
               </div>
               <div class="tv-icon facility-icon">
-                <img src="images/icons/tv.png" alt="TV Icon">
+                <img class=" mb-2" src="images/icons/tv.png" alt="TV Icon">
                 <p>TV</p>
               </div>
               <div class="shower-icon facility-icon">
-                <img src="images/icons/shower.png" alt="Shower Icon">
+                <img class=" mb-2" src="images/icons/shower.png" alt="Shower Icon">
                 <p>Shower</p>
               </div>
               <div class="parking-icon facility-icon">
-                <img src="images/icons/parking.png" alt="Parking Icon">
+                <img class=" mb-2" src="images/icons/parking.png" alt="Parking Icon">
                 <p>Parking</p>
               </div>
               <div class="coffee-icon facility-icon">
-                <img src="images/icons/coffee.png" alt="Coffee Icon">
+                <img class=" mb-2" src="images/icons/coffee.png" alt="Coffee Icon">
                 <p>Coffee</p>
               </div>
               <div class="meals-icon facility-icon">
-                <img src="images/icons/meals.png" alt="Meals Icon">
+                <img class=" mb-2" src="images/icons/meals.png" alt="Meals Icon">
                 <p>Meals</p>
               </div>
               <div class="landline-icon facility-icon">
-                <img src="images/icons/phone.png" alt="Landline Icon">
+                <img class=" mb-2" src="images/icons/phone.png" alt="Landline Icon">
                 <p>Landline</p>
               </div>
             </div>
           </div>
 
           <!-- IMAGE CAROUSEL -->
-          <div class="accommodation-details__subcontainer--right">
+          <div class="accommodation-details__subcontainer--right pl-4">
             <div class="accommodation-details__subcontainer--images">
               <img src="images/accommodation/hostel-1.jpg" alt="Hostel Images">
             </div>
@@ -187,42 +184,42 @@
         </div>
 
         <!-- BOOKING SUMMARY -->
-        <div class="booking-summary__container clearfix">
-          <h3>BOOKING SUMMARY</h3>
-          <hr class="summary-line">
+        <div class="booking-summary__container clearfix mt-4 rounded-bottom p-3">
+          <h3 class="pl-4">BOOKING SUMMARY</h3>
+          <hr class="summary-line mx-4">
           <div class="booking-summary__subcontainer">
-            <div class="bookin-summary__subcontainer--check-in summary-item">
-              <h5>CHECK IN</h5>
-              <p>Date Here</p>
+            <div class="bookin-summary__subcontainer--check-in summary-item__left border-right pl-4">
+              <h5 class="pb-2">CHECK IN</h5>
+              <p class="mb-2">25 Nov, 2020</p>
               <p>12pm - 11pm</p>
             </div>
-            <div class="bookin-summary__subcontainer--check-out summary-item">
-              <h5>CHECK OUT</h5>
-              <p>Date Here</p>
+            <div class="bookin-summary__subcontainer--check-out summary-item__left pl-4 border-right">
+              <h5 class="pb-2">CHECK OUT</h5>
+              <p class="mb-2">Date Here</p>
               <p>6am - 12pm</p>
             </div>
-            <div class="bookin-summary__subcontainer--guests summary-item">
-              <h5>GUESTS</h5>
-              <p>Guests Here</p>
+            <div class="bookin-summary__subcontainer--guests summary-item__left pl-4 border-right">
+              <h5 class="pb-2">GUESTS</h5>
+              <p class="mb-2">Guests Here</p>
               <p>Nights Here</p>
             </div>
             <!-- MEAL OPTIONS -->
-            <div class="bookin-summary__subcontainer--meal-option summary-item">
-              <h5>MEAL OPTION</h5>
-              <div class="form-check">
+            <div class="bookin-summary__subcontainer--meal-option summary-item__right pl-4 border-right">
+              <h5 class="pb-2">MEAL OPTION</h5>
+              <div class="form-check pl-0">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                  <label class="form-check-label" for="inlineCheckbox1">Breakfast $20</label>
+                  <input class="form-check-input mb-2" type="checkbox" id="inlineCheckbox1" value="option1">
+                  <label class="form-check-label mr-4 mb-2" for="inlineCheckbox1">Breakfast $20</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                  <label class="form-check-label" for="inlineCheckbox2">Lunch $25</label>
+                  <input class="form-check-input mb-2" type="checkbox" id="inlineCheckbox2" value="option2">
+                  <label class="form-check-label mb-2" for="inlineCheckbox2">Lunch $25</label>
                 </div>
               </div>
-              <div class="form-check">
+              <div class="form-check pl-0">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                  <label class="form-check-label" for="inlineCheckbox3">Dinner $35</label>
+                  <label class="form-check-label mr-5" for="inlineCheckbox3">Dinner $35</label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
@@ -231,16 +228,16 @@
               </div>
             </div>
             <!-- TOTAL COST -->
-            <div class="bookin-summary__subcontainer--summary summary-item">
-              <h5>SUMMARY</h5>
-              <p>Subtotal</p>
-              <p>GST</p>
-              <hr>
+            <div class="bookin-summary__subcontainer--summary summary-item__right pl-4">
+              <h5 class="pb-2">SUMMARY</h5>
+              <p class="mb-2">Subtotal</p>
+              <p class="mb-2">GST</p>
+              <hr class="w-100">
               <p>TOTAL</p>
             </div>
           </div>
         </div>
-        <div class="book-btn clearfix" id="book-btn">
+        <div class="book-btn clearfix mt-4" id="book-btn">
           <p>BOOK</p>
         </div>
       </div>
@@ -251,25 +248,25 @@
 
     <!-- BOOKING CONFIRMATION -->
     <div id="booking-confirmation">
-      <div class="booking-confirmation__container">
+      <div class="booking-confirmation__container pb-4">
         <img src="images/icons/tick.png" alt="Confirmation Tick Icon">
-        <h2>YOU ARE ALL BOOKED!</h2>
+        <h2 class="pt-4 font-weight-bold">YOU ARE ALL BOOKED!</h2>
         <div id="reservationCodeResult"></div>
-        <p>Your reservation code is #534523425</p>
-        <hr>
-        <div class="booking-confirmation__subcontainer">
-          <div class="booking-confirmation__subcontainer--email">
-            <input type="email" class="form-control" id="emailInput" placeholder="Email Itinerary">
-            <button type="button" name="button">SEND</button>
+        <p class="py-3">Your reservation code is #534523425</p>
+        <hr class="bg-white w-50 m-auto">
+        <br>
+        <div class="booking-confirmation__subcontainer px-3 py-5">
+          <div class="booking-confirmation__subcontainer--email pr-2">
+            <input type="email" class="form-control" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
+          </div>
+          <div class="send-btn ml-3">
+            <p>SEND</p>
           </div>
           <div class="booking-confirmation__subcontainer--another-booking" id="other-booking">
             <p>MAKE ANOTHER BOOKING</p>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
 
@@ -283,10 +280,10 @@
     <!-- LOGOS -->
     <footer id="footer">
       <div class="tourism__logo">
-        <img src="images/logos/tourism-logo.png" alt="Tourism NZ Logo">
+        <a target="_blank" href="https://www.tourismnewzealand.com/"><img src="images/logos/tourism-logo.png" alt="Tourism NZ Logo"></a>
       </div>
       <div class="pure-nz__logo">
-        <img src="images/logos/pure-logo.png" alt="100% Pure NZ Logo">
+        <a target="_blank" href="https://www.newzealand.com/nz/"><img src="images/logos/pure-logo.png" alt="100% Pure NZ Logo"></a>
       </div>
     </footer>
 

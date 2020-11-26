@@ -10,8 +10,10 @@
   // NAVIGATION
 // ==========================================================
 
+// #accommodation-details <---- add to hide instead of homepage
+
 $(document).ready(function(){
-  $("#accommodation-options, #accommodation-details, #booking-confirmation").hide();
+  $("#accommodation-options, #homepage, #booking-confirmation").hide();
 
   $("#search-btn").click(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();

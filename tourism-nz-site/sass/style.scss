@@ -46,7 +46,6 @@ box-shadow {
 }
 #accommodation-details {
   background-image:url("../images/backgrounds/details-page.jpg");
-  // background-repeat: repeat-y;
   height: 100%;
 }
 #booking-confirmation {
@@ -69,7 +68,7 @@ body {
 }
 
 .date-guest__box {
-  background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.35);
   color: white;
   width: 60%;
   margin: 0 auto;
@@ -82,25 +81,30 @@ body {
   float: left;
 }
 
-.date-container, guest-container {
-  padding: 20px 10px;
-}
-
-.homepage__input--btn {
+.homepage__input {
   background: white;
   border-radius: 5px;
   height: 50px;
-  width: 180px;
+  width: 80%;
   @extend box-shadow;
-  cursor: pointer;
 }
 
-.calender__icon, .guest__icon {
+.homepage__input--btn  {
+  height: 50px;
+  cursor: pointer;
+  // width: 80%;
+  float: right;
+  display: inline;
+}
+
+.guest__icon {
+  height: 50px;
+  width: 48px;
   float: left;
 }
 
 .calender__date, .guest__dropdown {
-  float: right;
+  // float: right;
 }
 
 .guest-container {
@@ -166,14 +170,14 @@ body {
 }
 
 .accommodation-details__container {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   padding-top: 75px;
 }
 
 .accommodation-details__subcontainer--left {
   float: left;
-  width: 58%;
+  width: 55%;
   color: white;
 }
 
@@ -188,7 +192,7 @@ body {
 
 .accommodation-details__subcontainer--right {
   float: right;
-  width: 40%;
+  width: 45%;
 }
 
 .accommodation-details__subcontainer--images {
@@ -202,14 +206,64 @@ body {
 .facility-icon {
   width: 12.5%;
   float: left;
+  img {
+    width: 35%;
+  }
+  p {
+    font-size: .7rem;
+  }
 }
 
 .booking-summary__container {
   background: white;
 }
 
-.summary-item {
+.booking-summary__subcontainer {
+  width: 100%;
+}
+
+.summary-item__left {
   float: left;
+  width: 18.33%
+}
+
+.summary-item__right {
+  float: left;
+}
+
+.bookin-summary__subcontainer--meal-option {
+  width: 25%;
+}
+
+.booking-summary__subcontainer--summary {
+  width: 20%
+}
+
+
+// BOOKING CONFIRMATION
+
+#booking-confirmation {
+  padding-top: 250px;
+
+}
+
+.booking-confirmation__container {
+  width: 60%;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.8);
+  border-radius: 5px;
+  @extend box-shadow;
+  color: white;
+  text-align: center;
+  // height: 300px;
+  padding-top: 25px
+}
+
+#emailInput {
+  width: 35%;
+  float: left;
+  height: 50px;
+
 }
 
 // BUTTONS
@@ -267,18 +321,48 @@ body {
   cursor: pointer;
 }
 
+.send-btn {
+  color: white;
+  background: $primary-color;
+  width: 10%;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 15px;
+  @extend box-shadow;
+  cursor: pointer;
+  float: left;
+}
+
+#other-booking {
+  float: right;
+  background: $secondary-color;
+  color: white;
+  width: 40%;
+  height: 50px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 16px;
+  @extend box-shadow;
+  cursor: pointer;
+}
+
 // FOOTER
 .tourism__logo img {
   width: 6%;
   position: absolute;
-  top: 665px;
+  bottom: 20px;
   left: 15px;
 }
 
 .pure-nz__logo img {
   width: 10%;
   position: absolute;
-  top: 680px;
+  bottom: 20px;
   right: 15px;
 }
 
