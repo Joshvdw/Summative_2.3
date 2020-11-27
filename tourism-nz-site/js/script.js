@@ -3,17 +3,15 @@
 // ==========================================================
 
 // console.log(key); //key comes from external file mapKey.js
-// var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&callback=initMap&libraries=&v=weekly" defer></script>'
+var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&callback=initMap&libraries=&v=weekly" defer></script>'
 // console.log (script);
 
 // ==========================================================
   // NAVIGATION
 // ==========================================================
 
-// #accommodation-details <---- add to hide instead of homepage
-
 $(document).ready(function(){
-  $("#accommodation-options, #homepage, #booking-confirmation").hide();
+  $("#accommodation-options, #accommodation-details, #booking-confirmation").hide();
 
   $("#search-btn").click(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();
@@ -22,6 +20,7 @@ $(document).ready(function(){
   $("#details-btn").click(function(){
     $('#homepage, #accommodation-options, #booking-confirmation').hide();
     $('#accommodation-details').show();
+    $('#footer').hide();
   });
   $("#book-btn").click(function(){
     $('#homepage, #accommodation-options, #accommodation-details').hide();
@@ -39,7 +38,27 @@ $(document).ready(function(){
     $('#accommodation-details, #accommodation-options, #booking-confirmation').hide();
     $('#homepage').show();
   });
-  });
+
+  $('body').append(script);
+
+}); //document ready
+
+// GOOGLE MAP
+function initMap(){
+  // console.log('map');
+  //callilng map from directions
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 15,
+      center: { lat: -45.031200, lng: 168.660690 },
+      mapTypeId : 'roadmap'
+    });//map
+    new google.maps.Marker({
+      position: { lat: -45.031200, lng: 168.660690 },
+      map,
+      title: "Hello World!",
+    });
+}
+
 
 // ==========================================================
   // ARRAY OF OBJECTS DECLARATION
@@ -118,9 +137,23 @@ var accommodation = [
 // ==========================================================
 // DATEPICKERS
 // ==========================================================
+var todayDate =new Date();
 
-$('#check-in').datepicker({
-   dateFormat : 'dd-mm-yy',
+
+var dd = String(todayDate.getDate()).padStart(2, '0');
+var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = todayDate.getFullYear();
+
+todayDate = dd + '-' + mm + '-' + yyyy;
+$('#checkIn').val(todayDate);
+var checkOutPlaceholder = +dd + 3 + '-' + mm + '-' + yyyy;
+$('#checkOut').val(checkOutPlaceholder);
+// console.log(todayDate);
+
+
+
+$('#checkIn').datepicker({
+   dateFormat : 'yy-mm-dd',
    changeMonth : true,
    minDate :new Date(),
    maxDate : '+1y',
@@ -129,28 +162,102 @@ $('#check-in').datepicker({
      var msecInADay  = 86400000;
      var stDate = new Date(selectDate.getTime() + msecInADay);
 
-     $('#endDate').datepicker('option', 'minDate', stDate);
-     var enDate = new Date(selectDate.getTime() + 10 * msecInADay);
+     // convert date
+     var dd = String(selectDate.getDate()).padStart(2, '0');
+     var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+     var yyyy = selectDate.getFullYear();
+     // console.log(dd + '-' + mm + '-' + yyyy);
+     $('#checkIn').val(dd + '-' + mm + '-' + yyyy)
 
-     $('#endDate').datepicker('option', 'maxDate', enDate);
+     $('#checkOut').datepicker('option', 'minDate', stDate);
+     var checkOut = new Date(selectDate.getTime() + 15 * msecInADay);
+     // console.log(checkOut);
+     $('#checkOut').datepicker('option', 'maxDate', checkOut);
+     // console.log(checkOut);
    }
  });
 
- $('#check-out').datepicker({
-   dateFormat : 'dd-mm-yy',
+ $('#checkOut').datepicker({
+   dateFormat : 'yy-mm-dd',
    changeMonth : true,
    minDate :new Date(),
-   maxDate : '+15d'
+   maxDate : '+15d',
+   onSelect : function(date){
+   var selectDate = new Date(date);
+   var msecInADay  = 86400000;
+   var enDate = new Date(selectDate.getTime() + msecInADay);
+   // console.log(enDate);
+   // convert date
+   var dd = String(selectDate.getDate()).padStart(2, '0');
+   var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+   var yyyy = selectDate.getFullYear();
+   // console.log(dd + '-' + mm + '-' + yyyy);
+   $('#checkOut').val(dd + '-' + mm + '-' + yyyy)
+ }
  });
 
- $('#calculateDays').click(function(){
+
+
+ document.getElementById('search-btn').addEventListener('click', function(){
+ // console.log('hello');
    dateDiff();
- });
-
 function dateDiff(){
- var start = $(startDate).datepicker('getDate');
- var end = $(endDate).datepicker('getDate');
+  // console.log(checkIn.value);
+  // console.log(checkOut.value);
+  // console.log(checkIn.value);
+  // console.log(checkOut.value);
+
+ var start = $(checkIn).datepicker('getDate');
+ var end = $(checkOut).datepicker('getDate');
+
+ // console.log(checkIn);
+ // console.log(checkOut);
 
  var days = (end-start)/1000/60/60/24; //to get human readable days
- $('#days').val(days);
+ // $('#days').val(days);
+ console.log(days);
+
+
+  var guestAmount = document.getElementById('guests').value;
+  // console.log(typeof guestAmount);
+  var guestAmount = parseInt(guestAmount)
+  // console.log(guestAmount);
+  // console.log(typeof guestAmount);
+  // console.log(guestAmount);
+
+
+  document.getElementById('checkInResult').innerHTML = checkIn;
+  document.getElementById('checkOutResult').innerHTML = checkOut;
+  document.getElementById('guestsResult').innerHTML = guestAmount + ' ' + 'Guests';
+  document.getElementById('daysResult').innerHTML = days + ' ' + 'Nights';
 }
+}); //search button
+
+
+
+
+
+
+
+
+// EMAIL CONFIRMATION
+document.getElementById('send-btn').addEventListener('click', function(){
+  var email = document.getElementById('emailInput').value
+
+  ValidateEmail(email);
+
+  function ValidateEmail(inputText)
+  {
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if(emailInput.value.match(mailformat))
+  {
+  document.getElementById('emailConfirmation').innerHTML = 'Itinerary sent!'
+  }
+  else
+  {
+  document.getElementById('emailConfirmation').innerHTML = "<p style='color:red'>Please input a valid email address</p>"
+  }
+  }
+
+
+});

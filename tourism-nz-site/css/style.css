@@ -154,8 +154,12 @@ body {
   .facility-icon p {
     font-size: .7rem; }
 
-.booking-summary__container {
-  background: white; }
+#map {
+  width: 600px;
+  height: 450px; }
+
+.booking-summary {
+  height: 190px; }
 
 .booking-summary__subcontainer {
   width: 100%; }
@@ -186,7 +190,7 @@ body {
   padding-top: 25px; }
 
 #emailInput {
-  width: 35%;
+  width: 25%;
   float: left;
   height: 50px; }
 
@@ -241,7 +245,7 @@ body {
 .send-btn {
   color: white;
   background: #F2B999;
-  width: 10%;
+  width: 8.33%;
   height: 50px;
   border-radius: 5px;
   text-align: center;
@@ -255,7 +259,7 @@ body {
   float: right;
   background: #45718C;
   color: white;
-  width: 40%;
+  width: 33.33%;
   height: 50px;
   border-radius: 5px;
   text-align: center;

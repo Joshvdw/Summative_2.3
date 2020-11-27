@@ -214,8 +214,20 @@ body {
   }
 }
 
+// GOOGLE MAPS API
+
+#map {
+  width: 600px;
+  height: 450px;
+}
+
+
+.booking-summary {
+  height: 190px;
+}
+
 .booking-summary__container {
-  background: white;
+  // background: white;
 }
 
 .booking-summary__subcontainer {
@@ -260,7 +272,7 @@ body {
 }
 
 #emailInput {
-  width: 35%;
+  width: 25%;
   float: left;
   height: 50px;
 
@@ -324,7 +336,7 @@ body {
 .send-btn {
   color: white;
   background: $primary-color;
-  width: 10%;
+  width: 8.33%;
   height: 50px;
   border-radius: 5px;
   text-align: center;
@@ -340,7 +352,7 @@ body {
   float: right;
   background: $secondary-color;
   color: white;
-  width: 40%;
+  width: 33.33%;
   height: 50px;
   border-radius: 5px;
   text-align: center;

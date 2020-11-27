@@ -34,10 +34,7 @@
               <div class="calender__icon input-group-prepend">
                 <span class="input-group-text bg-white border-0" id="basic-addon1"><img src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
-              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="check-in" placeholder="26-11-2020" autocomplete="off" aria-describedby="basic-addon1">
-              <div class="calender__date">
-                <!-- <p><input type="text" id="check-in"></p> -->
-              </div>
+              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="checkIn" autocomplete="off" aria-describedby="basic-addon1">
             </div>
           </div>
 
@@ -48,10 +45,7 @@
               <div class="calender__icon input-group-prepend">
                 <span class="input-group-text bg-white border-0" id="basic-addon2"><img src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
-              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="check-out" placeholder="26-11-2020" autocomplete="off" aria-describedby="basic-addon1">
-              <div class="calender__date">
-                <!-- <input type="text" id="check-out"> -->
-              </div>
+              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="checkOut" autocomplete="off" aria-describedby="basic-addon1">
             </div>
           </div>
         </div>
@@ -64,9 +58,9 @@
               <span class="input-group-text bg-white border-0" id="basic-addon3"><img src="images/icons/guests.png" alt="Guests Icon"></span>
             </div>
             <div class="float-right w-75">
-              <select class="form-control border-0 homepage__input--btn w-100" id="sel1">
+              <select class="form-control border-0 homepage__input--btn w-100 mr-2" id="guests">
                 <option>1 Guest</option>
-                <option>2 Guests</option>
+                <option selected>2 Guests</option>
                 <option>3 Guests</option>
                 <option>4 Guests</option>
                 <option>5 Guests</option>
@@ -133,7 +127,7 @@
             </div>
 
             <!-- FACILITIES -->
-            <div class="accommodation-details__subcontainer--facilities p-3 mt-4 rounded-bottom text-center">
+            <div class="accommodation-details__subcontainer--facilities p-3 rounded-bottom text-center">
               <h3 class="text-left mb-4">FACILITIES</h3>
               <div class="wifi-icon facility-icon">
                 <img class=" mb-2" src="images/icons/wifi.png" alt="Wifi Icon">
@@ -176,32 +170,42 @@
               <img src="images/accommodation/hostel-1.jpg" alt="Hostel Images">
             </div>
 
+
             <!-- MAP -->
-            <div class="accommodation-details__subcontainer--map">
-              <!-- place map here -->
+            <div id="map">
             </div>
+
+
+
+
+
+
+
+
           </div>
         </div>
 
         <!-- BOOKING SUMMARY -->
-        <div class="booking-summary__container clearfix mt-4 rounded-bottom p-3">
+        <div class="booking-summary__container clearfix rounded-bottom p-3">
+          <div class="booking-summary bg-white">
+
           <h3 class="pl-4">BOOKING SUMMARY</h3>
           <hr class="summary-line mx-4">
           <div class="booking-summary__subcontainer">
             <div class="bookin-summary__subcontainer--check-in summary-item__left border-right pl-4">
               <h5 class="pb-2">CHECK IN</h5>
-              <p class="mb-2">25 Nov, 2020</p>
+              <div id="checkInResult" class="mb-2"></div>
               <p>12pm - 11pm</p>
             </div>
             <div class="bookin-summary__subcontainer--check-out summary-item__left pl-4 border-right">
               <h5 class="pb-2">CHECK OUT</h5>
-              <p class="mb-2">Date Here</p>
+              <div id="checkOutResult" class="mb-2"></div>
               <p>6am - 12pm</p>
             </div>
             <div class="bookin-summary__subcontainer--guests summary-item__left pl-4 border-right">
               <h5 class="pb-2">GUESTS</h5>
-              <p class="mb-2">Guests Here</p>
-              <p>Nights Here</p>
+              <div id="guestsResult" class="mb-2"></div>
+              <div id="daysResult"></div>
             </div>
             <!-- MEAL OPTIONS -->
             <div class="bookin-summary__subcontainer--meal-option summary-item__right pl-4 border-right">
@@ -229,19 +233,21 @@
             </div>
             <!-- TOTAL COST -->
             <div class="bookin-summary__subcontainer--summary summary-item__right pl-4">
-              <h5 class="pb-2">SUMMARY</h5>
               <p class="mb-2">Subtotal</p>
               <p class="mb-2">GST</p>
-              <hr class="w-100">
+              <!-- <hr class="w-100 mx-0 px-0"> -->
               <p>TOTAL</p>
             </div>
           </div>
         </div>
-        <div class="book-btn clearfix mt-4" id="book-btn">
-          <p>BOOK</p>
+        <!-- BOOK BUTTON -->
+
+          <div class="book-btn clearfix pt-5" id="book-btn">
+            <p>BOOK</p>
+          </div>
         </div>
+
       </div>
-      <!-- BOOK BUTTON -->
 
     </div>
 
@@ -254,18 +260,20 @@
         <div id="reservationCodeResult"></div>
         <p class="py-3">Your reservation code is #534523425</p>
         <hr class="bg-white w-50 m-auto">
-        <br>
-        <div class="booking-confirmation__subcontainer px-3 py-5">
+        <br><br><br><br>
+        <div id="emailConfirmation" class="text-left pl-4 my-0 py-0"></div>
+        <div class="booking-confirmation__subcontainer px-3 py-2">
           <div class="booking-confirmation__subcontainer--email pr-2">
             <input type="email" class="form-control" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
           </div>
-          <div class="send-btn ml-3">
+          <div class="send-btn ml-3" id="send-btn">
             <p>SEND</p>
           </div>
           <div class="booking-confirmation__subcontainer--another-booking" id="other-booking">
             <p>MAKE ANOTHER BOOKING</p>
           </div>
         </div>
+        <br><br>
       </div>
     </div>
 
