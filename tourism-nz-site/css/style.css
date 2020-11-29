@@ -1,13 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box; }
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table; }
-
 text-shadow, .homepage__heading h1 {
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25); }
 
@@ -36,7 +26,7 @@ body {
   font-family: "Montserrat", "sans-serif"; }
 
 .homepage__heading {
-  padding-top: 250px;
+  padding-top: 15.6em;
   font-family: 'Bebas Neue', 'cursive'; }
   .homepage__heading h1 {
     font-size: 4.5vw;
@@ -44,64 +34,38 @@ body {
 
 .date-guest__box {
   background: rgba(0, 0, 0, 0.35);
-  color: white;
   width: 60%;
-  margin: 0 auto;
   font-size: 0.75vw; }
 
-.date-container, .date-container__subcontainer {
-  width: 50%;
-  float: left; }
-
 .homepage__input {
-  background: white;
-  border-radius: 5px;
   height: 50px;
-  width: 80%; }
+  width: 85%; }
 
 .homepage__input--btn {
   height: 50px;
-  cursor: pointer;
-  float: right;
-  display: inline; }
+  cursor: pointer; }
 
 .guest__icon {
-  height: 50px;
-  width: 48px;
-  float: left; }
-
-.guest-container {
-  width: 25%;
-  float: right; }
+  height: 50px; }
 
 .accommodation-options__container {
   width: 60%;
-  margin: 0 auto;
-  padding-top: 75px; }
+  padding-top: 4.6em; }
 
 .card {
-  border: none;
-  border-radius: 5px;
   width: 23rem;
-  height: 250px;
-  float: left; }
+  height: 250px; }
 
 .card-body {
   background-image: url("../images/accommodation/hostel-1.jpg");
-  border-radius: 5px;
-  width: 100%;
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
   padding: 165px 0 0 0; }
 
 .card-textbox {
   background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 85px;
-  padding: 5px; }
+  height: 85px; }
 
 .card-title {
   font-weight: 600;
@@ -112,22 +76,15 @@ body {
   font-size: 10px;
   margin-bottom: .5rem; }
 
-.details-btn__container {
-  float: left; }
-
 .price-textbox {
-  float: right;
   font-weight: 500; }
 
 .accommodation-details__container {
   width: 80%;
-  margin: 0 auto;
-  padding-top: 75px; }
+  padding-top: 4.6em; }
 
 .accommodation-details__subcontainer--left {
-  float: left;
-  width: 55%;
-  color: white; }
+  width: 55%; }
 
 .accommodation-details__subcontainer--description {
   background: rgba(0, 0, 0, 0.8); }
@@ -137,14 +94,10 @@ body {
   height: 150px; }
 
 .accommodation-details__subcontainer--right {
-  float: right;
   width: 45%; }
 
 .accommodation-details__subcontainer--images {
   height: 300px; }
-  .accommodation-details__subcontainer--images img {
-    width: 100%;
-    height: 100%; }
 
 .facility-icon {
   width: 12.5%;
@@ -161,51 +114,30 @@ body {
 .booking-summary {
   height: 190px; }
 
-.booking-summary__subcontainer {
-  width: 100%; }
-
 .summary-item__left {
-  float: left;
   width: 18.33%; }
-
-.summary-item__right {
-  float: left; }
-
-.bookin-summary__subcontainer--meal-option {
-  width: 25%; }
 
 .booking-summary__subcontainer--summary {
   width: 20%; }
 
 #booking-confirmation {
-  padding-top: 250px; }
+  padding-top: 10.6em; }
 
 .booking-confirmation__container {
   width: 60%;
-  margin: 0 auto;
   background: rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-  color: white;
-  text-align: center;
   padding-top: 25px; }
 
 #emailInput {
-  width: 25%;
-  float: left;
   height: 50px; }
 
 .search-btn {
   margin: auto;
-  margin-top: 25px;
-  color: white;
   background: #F2B999;
-  width: 180px;
+  width: 15%;
   height: 50px;
-  border-radius: 5px;
-  text-align: center;
   font-weight: 600;
   font-size: 14px;
-  padding-top: 15px;
   cursor: pointer; }
 
 .back-btn {
@@ -216,12 +148,9 @@ body {
   cursor: pointer; }
 
 #details-btn {
-  color: white;
   background: #F2B999;
   width: 60px;
   height: 25px;
-  border-radius: 5px;
-  text-align: center;
   font-weight: 500;
   font-size: 9px;
   padding-top: 5px;
@@ -230,39 +159,27 @@ body {
   border: none; }
 
 .book-btn {
-  float: right;
   background: #45718C;
-  color: white;
   width: 40%;
   height: 50px;
-  border-radius: 5px;
-  text-align: center;
   font-weight: 600;
   font-size: 14px;
   padding-top: 16px;
   cursor: pointer; }
 
 .send-btn {
-  color: white;
   background: #F2B999;
   width: 8.33%;
   height: 50px;
-  border-radius: 5px;
-  text-align: center;
   font-weight: 600;
   font-size: 14px;
   padding-top: 15px;
-  cursor: pointer;
-  float: left; }
+  cursor: pointer; }
 
 #other-booking {
-  float: right;
   background: #45718C;
-  color: white;
   width: 33.33%;
   height: 50px;
-  border-radius: 5px;
-  text-align: center;
   font-weight: 600;
   font-size: 14px;
   padding-top: 16px;

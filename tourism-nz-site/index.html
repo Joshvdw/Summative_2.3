@@ -24,41 +24,41 @@
       </div>
 
 <!-- DATE AND GUEST INPUT BOX -->
-      <div class="date-guest__box mt-5 clearfix rounded">
+      <div class="date-guest__box mt-5 text-white m-auto clearfix rounded">
 
 <!-- CHECK IN PICKER -->
-        <div class="date-container py-4">
-          <div class="date-container__subcontainer pl-3">
+        <div class="date-container w-50 float-left py-4">
+          <div class="date-container__subcontainer w-50 float-left pl-3">
             <p>CHECK IN</p>
-            <div class="check-in__calendar homepage__input input-group mb-3">
+            <div class="check-in__calendar homepage__input input-group bg-white mb-3 rounded">
               <div class="calender__icon input-group-prepend">
                 <span class="input-group-text bg-white border-0" id="basic-addon1"><img src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
-              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="checkIn" autocomplete="off" aria-describedby="basic-addon1">
+              <input type="text" class="form-control border-0 rounded homepage__input--btn float-right d-inline" id="checkIn" autocomplete="off" aria-describedby="basic-addon1">
             </div>
           </div>
 
 <!-- CHECK OUT PICKER -->
-          <div class="date-container__subcontainer">
+          <div class="date-container__subcontainer w-50 float-left pr-3">
             <p>CHECK OUT</p>
-            <div class="check-out__calendar homepage__input input-group mb-3">
+            <div class="check-out__calendar homepage__input input-group bg-white mb-3 rounded">
               <div class="calender__icon input-group-prepend">
                 <span class="input-group-text bg-white border-0" id="basic-addon2"><img src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
-              <input type="text" class="form-control border-0 rounded homepage__input--btn" id="checkOut" autocomplete="off" aria-describedby="basic-addon1">
+              <input type="text" class="form-control border-0 rounded homepage__input--btn float-right d-inline" id="checkOut" autocomplete="off" aria-describedby="basic-addon1">
             </div>
           </div>
         </div>
 
 <!-- GUEST PICKER -->
-        <div class="guest-container py-4">
+        <div class="guest-container w-25 float-right py-4">
           <p>GUESTS</p>
-          <div class="guest__btn homepage__input mb-3">
-            <div class="guest__icon input-group-prepend">
+          <div class="guest__btn homepage__input mb-3 bg-white rounded">
+            <div class="guest__icon input-group-prepend w-25 float-left">
               <span class="input-group-text bg-white border-0" id="basic-addon3"><img src="images/icons/guests.png" alt="Guests Icon"></span>
             </div>
             <div class="float-right w-75">
-              <select class="form-control border-0 homepage__input--btn w-100 mr-2" id="guests">
+              <select class="form-control border-0 homepage__input--btn float-right d-inline w-100 mr-2" id="guests">
                 <option>1 Guest</option>
                 <option selected>2 Guests</option>
                 <option>3 Guests</option>
@@ -71,7 +71,7 @@
       </div>
 
       <!-- SEARCH BUTTON -->
-      <div class="search-btn mt-5" id="search-btn">
+      <div class="search-btn mt-5 text-white rounded text-center pt-3" id="search-btn">
         <p>SEARCH</p>
       </div>
     </div>
@@ -80,22 +80,20 @@
 <!-- ACCOMMODATION OPTIONS -->
     <div id="accommodation-options">
 
-
-
-      <div class="accommodation-options__container">
+      <div class="accommodation-options__container m-auto">
         <div class="back-btn" id="back-btn__1">
           <p>BACK</p>
         </div>
         <!-- CARD -->
-        <div class="card">
-          <div class="card-body">
-            <div class="card-textbox">
+        <div class="card border-0 rounded float-left">
+          <div class="card-body rounded w-100 h-100 text-white">
+            <div class="card-textbox w-100 p-2">
               <h5 class="card-title">Adventure Queenstown Hostel</h5>
               <p class="card-text">36 Camp Street, Queenstown</p>
-              <div class="details-btn__container">
-                <a href="#" class="btn btn-primary" id="details-btn">Details</a>
+              <div class="details-btn__container float-left">
+                <a href="#" class="btn btn-primary text-white rounded text-center" id="details-btn">Details</a>
               </div>
-              <div class="price-textbox">
+              <div class="price-textbox float-right">
                 <p>$30/night</p>
               </div>
             </div>
@@ -108,12 +106,12 @@
 <!-- ACCOMMODATION DETAILS -->
     <div id="accommodation-details">
 
-      <div class="accommodation-details__container">
+      <div class="accommodation-details__container m-auto">
         <div class="back-btn" id="back-btn__2">
           <p>BACK</p>
         </div>
         <div class="clearfix">
-          <div class="accommodation-details__subcontainer--left">
+          <div class="accommodation-details__subcontainer--left float-left text-white">
 
             <!-- DESCRIPTION -->
             <div class="accommodation-details__subcontainer--description p-3 rounded-top">
@@ -165,23 +163,15 @@
           </div>
 
           <!-- IMAGE CAROUSEL -->
-          <div class="accommodation-details__subcontainer--right pl-4">
+          <div class="accommodation-details__subcontainer--right float-right pl-4">
             <div class="accommodation-details__subcontainer--images">
-              <img src="images/accommodation/hostel-1.jpg" alt="Hostel Images">
+              <img class="w-100 h-100"src="images/accommodation/hostel-1.jpg" alt="Hostel Images">
             </div>
 
 
             <!-- MAP -->
             <div id="map">
             </div>
-
-
-
-
-
-
-
-
           </div>
         </div>
 
@@ -191,24 +181,24 @@
 
           <h3 class="pl-4">BOOKING SUMMARY</h3>
           <hr class="summary-line mx-4">
-          <div class="booking-summary__subcontainer">
-            <div class="bookin-summary__subcontainer--check-in summary-item__left border-right pl-4">
+          <div class="booking-summary__subcontainer w-100">
+            <div class="bookin-summary__subcontainer--check-in summary-item__left float-left border-right pl-4">
               <h5 class="pb-2">CHECK IN</h5>
               <div id="checkInResult" class="mb-2"></div>
               <p>12pm - 11pm</p>
             </div>
-            <div class="bookin-summary__subcontainer--check-out summary-item__left pl-4 border-right">
+            <div class="bookin-summary__subcontainer--check-out summary-item__left float-left pl-4 border-right">
               <h5 class="pb-2">CHECK OUT</h5>
               <div id="checkOutResult" class="mb-2"></div>
               <p>6am - 12pm</p>
             </div>
-            <div class="bookin-summary__subcontainer--guests summary-item__left pl-4 border-right">
+            <div class="bookin-summary__subcontainer--guests summary-item__left float-left pl-4 border-right">
               <h5 class="pb-2">GUESTS</h5>
               <div id="guestsResult" class="mb-2"></div>
               <div id="daysResult"></div>
             </div>
             <!-- MEAL OPTIONS -->
-            <div class="bookin-summary__subcontainer--meal-option summary-item__right pl-4 border-right">
+            <div class="bookin-summary__subcontainer--meal-option w-25 float-left pl-4 border-right">
               <h5 class="pb-2">MEAL OPTION</h5>
               <div class="form-check pl-0">
                 <div class="form-check form-check-inline">
@@ -232,7 +222,7 @@
               </div>
             </div>
             <!-- TOTAL COST -->
-            <div class="bookin-summary__subcontainer--summary summary-item__right pl-4">
+            <div class="bookin-summary__subcontainer--summary float-left pl-4">
               <p class="mb-2">Subtotal</p>
               <p class="mb-2">GST</p>
               <!-- <hr class="w-100 mx-0 px-0"> -->
@@ -242,7 +232,7 @@
         </div>
         <!-- BOOK BUTTON -->
 
-          <div class="book-btn clearfix pt-5" id="book-btn">
+          <div class="book-btn clearfix float-right text-white rounded text-center pt-5" id="book-btn">
             <p>BOOK</p>
           </div>
         </div>
@@ -254,7 +244,7 @@
 
     <!-- BOOKING CONFIRMATION -->
     <div id="booking-confirmation">
-      <div class="booking-confirmation__container pb-4">
+      <div class="booking-confirmation__container m-auto pb-4 text-white text-center rounded">
         <img src="images/icons/tick.png" alt="Confirmation Tick Icon">
         <h2 class="pt-4 font-weight-bold">YOU ARE ALL BOOKED!</h2>
         <div id="reservationCodeResult"></div>
@@ -264,12 +254,12 @@
         <div id="emailConfirmation" class="text-left pl-4 my-0 py-0"></div>
         <div class="booking-confirmation__subcontainer px-3 py-2">
           <div class="booking-confirmation__subcontainer--email pr-2">
-            <input type="email" class="form-control" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
+            <input type="email" class="form-control w-25 float-left" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
           </div>
-          <div class="send-btn ml-3" id="send-btn">
+          <div class="send-btn text-white rounded text-center float-left ml-3" id="send-btn">
             <p>SEND</p>
           </div>
-          <div class="booking-confirmation__subcontainer--another-booking" id="other-booking">
+          <div class="booking-confirmation__subcontainer--another-booking float-right text-white rounded text-center" id="other-booking">
             <p>MAKE ANOTHER BOOKING</p>
           </div>
         </div>

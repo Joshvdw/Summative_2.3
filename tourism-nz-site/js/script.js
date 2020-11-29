@@ -24,7 +24,7 @@ $(document).ready(function(){
   });
   $("#book-btn").click(function(){
     $('#homepage, #accommodation-options, #accommodation-details').hide();
-    $('#booking-confirmation').show();
+    $('#booking-confirmation, #footer').show();
   });
   $("#back-btn__1").click(function(){
     $('#accommodation-details, #accommodation-options, #booking-confirmation').hide();
@@ -32,7 +32,7 @@ $(document).ready(function(){
   });
   $("#back-btn__2").click(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();
-    $('#accommodation-options').show();
+    $('#accommodation-options, #footer').show();
   });
   $("#other-booking").click(function(){
     $('#accommodation-details, #accommodation-options, #booking-confirmation').hide();
@@ -139,18 +139,13 @@ var accommodation = [
 // ==========================================================
 var todayDate =new Date();
 
-
 var dd = String(todayDate.getDate()).padStart(2, '0');
 var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = todayDate.getFullYear();
 
 todayDate = dd + '-' + mm + '-' + yyyy;
 $('#checkIn').val(todayDate);
-var checkOutPlaceholder = +dd + 3 + '-' + mm + '-' + yyyy;
-$('#checkOut').val(checkOutPlaceholder);
-// console.log(todayDate);
-
-
+$('#checkOut').val(todayDate);
 
 $('#checkIn').datepicker({
    dateFormat : 'yy-mm-dd',
