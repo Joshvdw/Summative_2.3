@@ -3,7 +3,7 @@
 // ==========================================================
 
 // console.log(key); //key comes from external file mapKey.js
-var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&callback=initMap&libraries=&v=weekly" defer></script>'
+// var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&callback=initMap&libraries=&v=weekly" defer></script>'
 // console.log (script);
 
 // ==========================================================
@@ -17,7 +17,7 @@ $(document).ready(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();
     $('#accommodation-options').show();
   });
-  $("#details-btn").click(function(){
+  $("#details-btn, #101, #102, #103, #104").click(function(){
     $('#homepage, #accommodation-options, #booking-confirmation').hide();
     $('#accommodation-details').show();
     $('#footer').hide();
@@ -29,6 +29,7 @@ $(document).ready(function(){
   $("#back-btn__1").click(function(){
     $('#accommodation-details, #accommodation-options, #booking-confirmation').hide();
     $('#homepage').show();
+    $('#cardResult').empty();
   });
   $("#back-btn__2").click(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();
@@ -39,7 +40,7 @@ $(document).ready(function(){
     $('#homepage').show();
   });
 
-  $('body').append(script);
+  // $('body').append(script);
 
 }); //document ready
 
@@ -75,6 +76,7 @@ var accommodation = [
                   'Being the most central accommodation in town, you’re just a minutes walk to everything. At night you can sleep soundly as there are no bars directly by us.',
     address : '36 Camp Street, Queenstown',
     price : 30,
+    bgImg : 'bgImg1',
     image : 'hostel-1.jpg',
     latitude : -45.031200,
     longitude : 168.660690,
@@ -92,6 +94,7 @@ var accommodation = [
                   'Weather you are travelling for work or recreation, Queenstown Motel Apartments offer a comfortable stay in the perfect spot. We look forward to hosting you.',
     address : '62 Frankton Road, Queenstown',
     price : 90,
+    bgImg : 'bgImg2',
     image : 'motel-2-4.jpg',
     latitude : -45.033850,
     longitude : 168.669430,
@@ -108,6 +111,7 @@ var accommodation = [
                   'Our team of experienced local and international staff pride themselves on delivering professional friendly service that consistently exceeds our guests’ expectations and is a hallmark of The Rees Hotel’s reputation.',
     address : '377 Frankton Road, Queenstown',
     price : 157,
+    bgImg : 'bgImg3',
     image : 'hotel-1-2.jpg',
     latitude : -45.028390,
     longitude : 168.687880,
@@ -124,6 +128,7 @@ var accommodation = [
                   'Approximately 10 minutes by car from the airport, 18 minutes from Queenstown, 30 minutes from Aerotown, 25 minutes from Milbrook Resort, 25 minutes from Remarkable Ski Area, 35 minutes from Coronet Pic Ski Area and Remarkable Shopping Center',
     address : '25 Kawarau Place, Queenstown',
     price : 240,
+    bgImg : 'bgImg4',
     image : 'house-1-4.jpg',
     latitude : -45.029890,
     longitude : 168.740710,
@@ -134,83 +139,187 @@ var accommodation = [
   }
 ];
 
+
+
+// ==========================================================
+// Display cards
+// ==========================================================
+
+function displayCards(j){
+  //access properties of objects using index number
+  $('#cardResult').append( '<div class="p-3 w-50">' +
+'              <div class="card border-0 rounded float-left w-100 h-100">' +
+'                <div class="card-body rounded w-100 text-white bgImg" id="' + accommodation[j].bgImg + '">' +
+'                  <div class="card-textbox w-100 p-2 rounded-bottom">' +
+'                    <h5 class="card-title">' + accommodation[j].name + '</h5>' +
+'                    <p class="card-text">' + accommodation[j].address + '</p>' +
+'                    <div class="details-btn__container float-left" id="' + accommodation[j].id + '">' +
+'                      <p class="btn btn-primary text-white rounded text-center details-btn">Details</p>' +
+'                    </div>' +
+'                    <div class="price-textbox float-right">' +
+'                      <p class="pt-1">$' + accommodation[j].price + '/night</p>' +
+'                    </div>' +
+'                  </div>' +
+'                </div>' +
+'              </div>' +
+'            </div>'
+
+
+                  ); //append ends here
+            // console.log(document.getElementsByClassName("bgImg"));
+            //   document.getElementsByClassName("bgImg")[j].style.backgroundImage = "url(accommodation[j].image)";
+  } //displayCards
+
+  // ==========================================================
+  // Display Details
+  // ==========================================================
+
+  // document.getElementById(accommodation[j].id).addEventListener('click', function(){
+  //   alert('Hello World')
+  // })
+  //
+  // function displayDetails(j){
+  //
+  //   $('#accommodationResult').append (
+  //
+  //   )
+  //
+  // }
+
+  $("#details-btn, #101, #102, #103, #104").click(function(){
+    alert('clicked')
+    $('#homepage, #accommodation-options, #booking-confirmation').hide();
+    $('#accommodation-details').show();
+    $('#footer').hide();
+  });
+
+  // ==========================================================
+  // Display items as per user's input - breed filter call
+  // ==========================================================
+
+  // $('#showChoice').click(function(){
+  //   var inputArray = [];
+  //
+  //   //push user's choice into an array
+  //   if (samuel === 'checked') {
+  //         inputArray.push('Samuel');
+  //   }
+  //
+  //   if (uma === 'checked') {
+  //         inputArray.push('Uma');
+  //   }
+  //
+  //   if (michael === 'checked') {
+  //         inputArray.push('Michael');
+  //   }
+  //
+  //    if (tim === 'checked'){
+  //       inputArray.push('Tim');
+  //   }
+  //
+  //   //call the function to filter user's choice
+  //   filteredMovies(inputArray);
+  //
+  // });//showChoice click function
+
+
+  // ==========================================================
+  // Filter by movie type
+  // ==========================================================
+
+//   function filteredMovies(actorPicked){
+//     var cardIndex = [];
+//     var i,j,k;
+//     $('#result').text(' ');
+//     for(i = 0 ; i < movies.length; i++) {
+//       for (j = 0 ; j < actorPicked.length; j++){
+//         for (k = 0 ; k < movies[i].stars.length ; k++){
+//         if (actorPicked[j] === movies[i].stars[k]) {
+//           if (!(cardIndex.includes(i))) {
+//           cardIndex.push(i);
+//         }//if
+//       } //if
+//     } //for k
+//       }//for j
+//     }//for i
+//     for(i = 0 ; i < cardIndex.length; i++) {
+//     displayCards(cardIndex[i]);
+//     cardModal();
+//   }
+// }//
+
+
+
 // ==========================================================
 // DATEPICKERS
 // ==========================================================
-var todayDate =new Date();
+// var todayDate =new Date();
+//
+// var dd = String(todayDate.getDate()).padStart(2, '0');
+// var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+// var yyyy = todayDate.getFullYear();
 
-var dd = String(todayDate.getDate()).padStart(2, '0');
-var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = todayDate.getFullYear();
+// todayDate = dd + '-' + mm + '-' + yyyy;
+// $('#checkIn').val(new Date());
+// $('#checkOut').val(todayDate);
 
-todayDate = dd + '-' + mm + '-' + yyyy;
-$('#checkIn').val(todayDate);
-$('#checkOut').val(todayDate);
+var stDate;
+var enDate
 
 $('#checkIn').datepicker({
-   dateFormat : 'yy-mm-dd',
+   dateFormat : 'dd-mm-yy',
    changeMonth : true,
    minDate :new Date(),
    maxDate : '+1y',
    onSelect : function(date){
-     var selectDate = new Date(date);
-     var msecInADay  = 86400000;
-     var stDate = new Date(selectDate.getTime() + msecInADay);
+     // var selectDate = new Date(date);
+     // var msecInADay  = 86400000;
+     // var stDate = new Date(selectDate.getTime() + msecInADay);
 
      // convert date
-     var dd = String(selectDate.getDate()).padStart(2, '0');
-     var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-     var yyyy = selectDate.getFullYear();
+     // var dd = String(selectDate.getDate()).padStart(2, '0');
+     // var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+     // var yyyy = selectDate.getFullYear();
      // console.log(dd + '-' + mm + '-' + yyyy);
-     $('#checkIn').val(dd + '-' + mm + '-' + yyyy)
+     // $('#checkIn').val(dd + '-' + mm + '-' + yyyy)
+    stDate = $(this).datepicker('getDate');
+    console.log(stDate);
 
-     $('#checkOut').datepicker('option', 'minDate', stDate);
-     var checkOut = new Date(selectDate.getTime() + 15 * msecInADay);
+     // $('#checkOut').datepicker('option', 'minDate', stDate);
+     // var checkOut = new Date(selectDate.getTime() + 15 * msecInADay);
      // console.log(checkOut);
-     $('#checkOut').datepicker('option', 'maxDate', checkOut);
+     // $('#checkOut').datepicker('option', 'maxDate', checkOut);
      // console.log(checkOut);
    }
  });
 
  $('#checkOut').datepicker({
-   dateFormat : 'yy-mm-dd',
+   dateFormat : 'dd-mm-yy',
    changeMonth : true,
    minDate :new Date(),
    maxDate : '+15d',
-   onSelect : function(date){
-   var selectDate = new Date(date);
-   var msecInADay  = 86400000;
-   var enDate = new Date(selectDate.getTime() + msecInADay);
-   // console.log(enDate);
-   // convert date
-   var dd = String(selectDate.getDate()).padStart(2, '0');
-   var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-   var yyyy = selectDate.getFullYear();
+   onSelect : function(){
+   enDate = $(this).datepicker('getDate');
+   // var selectDate = new Date(date);
+   // console.log(selectDate);
+   // var msecInADay  = 86400000;
+   // var enDate = new Date(selectDate.getTime());
+   console.log(enDate);
+   // // convert date
+   // var dd = String(selectDate.getDate()).padStart(2, '0');
+   // var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+   // var yyyy = selectDate.getFullYear();
    // console.log(dd + '-' + mm + '-' + yyyy);
-   $('#checkOut').val(dd + '-' + mm + '-' + yyyy)
+   // $('#checkOut').val(dd + '-' + mm + '-' + yyyy)
+   // dateDiff(enDate)
  }
  });
 
-
-
  document.getElementById('search-btn').addEventListener('click', function(){
  // console.log('hello');
-   dateDiff();
-function dateDiff(){
-  // console.log(checkIn.value);
-  // console.log(checkOut.value);
-  // console.log(checkIn.value);
-  // console.log(checkOut.value);
-
- var start = $(checkIn).datepicker('getDate');
- var end = $(checkOut).datepicker('getDate');
-
- // console.log(checkIn);
- // console.log(checkOut);
-
- var days = (end-start)/1000/60/60/24; //to get human readable days
- // $('#days').val(days);
- console.log(days);
+ var days = Math.ceil((enDate - stDate) / (1000 * 60 * 60 * 24)) ;
+      console.log(days);
+ // dateDiff();
 
 
   var guestAmount = document.getElementById('guests').value;
@@ -221,14 +330,42 @@ function dateDiff(){
   // console.log(guestAmount);
 
 
-  document.getElementById('checkInResult').innerHTML = checkIn;
-  document.getElementById('checkOutResult').innerHTML = checkOut;
+  document.getElementById('checkInResult').innerHTML = checkIn.value;
+  document.getElementById('checkOutResult').innerHTML = checkOut.value;
   document.getElementById('guestsResult').innerHTML = guestAmount + ' ' + 'Guests';
   document.getElementById('daysResult').innerHTML = days + ' ' + 'Nights';
-}
+
+
+  // CARD LOOP
+  for (var i = 0 ; i < accommodation.length ; i++) {
+    if (((days <= accommodation[i].maxDays) && (days >= accommodation[i].minDays)) && ((guestAmount <= accommodation[i].maxGuests) && (guestAmount >= accommodation[i].minGuests))) {
+      // console.log('Display Card');
+      console.log(accommodation[i].name);
+      displayCards(i)
+    } else if (days === 0) {
+      alert('Please select a check in and check out date') //replace these with on screen messages
+    } else {
+      // alert('No results. Please select different dates and try again.') //replace these with on screen messages
+    }
+  }
+
 }); //search button
-
-
+// var days;
+// function dateDiff(){
+//   console.log(checkIn.value);
+//   console.log(checkOut.value);
+//
+//
+//  var start = $(checkIn).datepicker('getDate');
+//  var end = $(checkOut).datepicker('getDate');
+//
+//  console.log(start);
+//  console.log(end);
+//
+//  days = (end-start)/1000/60/60/24; //to get human readable days
+//  // $('#days').val(days);
+//  console.log(days);
+// }
 
 
 

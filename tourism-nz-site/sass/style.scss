@@ -78,42 +78,58 @@ body {
 
 .card {
   @extend box-shadow;
-  width: 23rem;
-  height: 250px;
+  overflow: hidden;
+}
+
+#bgImg1 {
+  background-image:url("../images/accommodation/hostel-1.jpg");
+}
+
+#bgImg2 {
+  background-image:url("../images/accommodation/motel-2-4.jpg");
+}
+
+#bgImg3 {
+  background-image:url("../images/accommodation/hotel-1-2.jpg");
+}
+
+#bgImg4 {
+  background-image:url("../images/accommodation/house-1-4.jpg");
 }
 
 .card-body {
-  background-image:url("../images/accommodation/hostel-1.jpg");
+  // background-image:url("../images/accommodation/hostel-1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 165px 0 0 0;
+  padding: 225px 0 0 0;
+  height: 35vh;
 }
 
 .card-textbox {
   background: rgba(0,0,0,0.7);
-  height: 85px;
+  height: 110px;
 }
 
 .card-title {
   font-weight: 600;
-  font-size: 1rem;
   margin-bottom: .25rem;
 }
 
 .card-text {
-  font-size: 10px;
-  margin-bottom: .5rem;
+  font-size: .8em;
+  margin-bottom: .9rem;
 }
 
 .price-textbox {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 
 // ACCOMMODATION DETAILS
 .accommodation-details__container {
-  width: 80%;
+  width: 70%;
   padding-top: 4.6em;
 }
 
@@ -206,13 +222,13 @@ body {
   cursor: pointer;
 }
 
-#details-btn {
+.details-btn {
   background: $primary-color;
-  width: 60px;
-  height: 25px;
+  width: 120%;
+  height: 30px;
   font-weight: 500;
-  font-size: 9px;
-  padding-top: 5px;
+  font-size: .7rem;
+  padding-top: 6.5px;
   box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.25);
   cursor: pointer;
   border: none;
@@ -227,6 +243,9 @@ body {
   padding-top: 16px;
   @extend box-shadow;
   cursor: pointer;
+  :hover {
+    background-color: $secondary-color;
+  }
 }
 
 .send-btn {

@@ -81,24 +81,31 @@
     <div id="accommodation-options">
 
       <div class="accommodation-options__container m-auto">
-        <div class="back-btn" id="back-btn__1">
+        <div class="back-btn pl-3" id="back-btn__1">
           <p>BACK</p>
         </div>
         <!-- CARD -->
-        <div class="card border-0 rounded float-left">
-          <div class="card-body rounded w-100 h-100 text-white">
-            <div class="card-textbox w-100 p-2">
-              <h5 class="card-title">Adventure Queenstown Hostel</h5>
-              <p class="card-text">36 Camp Street, Queenstown</p>
-              <div class="details-btn__container float-left">
-                <a href="#" class="btn btn-primary text-white rounded text-center" id="details-btn">Details</a>
-              </div>
-              <div class="price-textbox float-right">
-                <p>$30/night</p>
+        <!-- Result container -->
+        <div id="cardResult" class="row mx-auto clearfix w-100">
+          <!-- DEFAULT CARD -->
+          <!-- <div class="p-3 w-50">
+            <div class="card border-0 rounded float-left w-100 h-100">
+              <div class="card-body rounded w-100 text-white">
+                <div class="card-textbox w-100 p-2 rounded-bottom">
+                  <h5 class="card-title">Adventure Queenstown Hostel</h5>
+                  <p class="card-text">36 Camp Street, Queenstown</p>
+                  <div class="details-btn__container float-left">
+                    <a href="#" class="btn btn-primary text-white rounded text-center" id="details-btn">Details</a>
+                  </div>
+                  <div class="price-textbox float-right">
+                    <p class="pt-1">$30/night</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
+
       </div>
     </div>
 
@@ -110,13 +117,13 @@
         <div class="back-btn" id="back-btn__2">
           <p>BACK</p>
         </div>
-        <div class="clearfix">
-          <div class="accommodation-details__subcontainer--left float-left text-white">
+        <div class="clearfix" id="accommodationResult">
+          <div class="accommodation-details__subcontainer--left float-left text-white mb-4">
 
             <!-- DESCRIPTION -->
-            <div class="accommodation-details__subcontainer--description p-3 rounded-top">
+            <div class="accommodation-details__subcontainer--description p-3 rounded-top mb-4">
               <h2 class="display-4 font-weight-bold mb-4">ADVENTURE QUEENSTOWN HOSTEL</h2>
-              <hr class="bg-white w-75">
+              <hr class="bg-white w-75 mx-0 mb-3">
               <p class="pt-2">Welcome to Adventure Queenstown Hostel.</p>
               <p>Catering to independent travellers from around the world we offer mostly shared room accommodation and run in-house activities 5 nights a week to make it easy to meet fellow explorers from all around the world.</p>
               <p>There is a tour desk where our friendly staff can help you plan your activities, as well as a separate storage/locker room with secure bicycle parking and ski & snowboard storage. We offer loads of free stuff and even a simple laundry service.</p>
@@ -176,21 +183,21 @@
         </div>
 
         <!-- BOOKING SUMMARY -->
-        <div class="booking-summary__container clearfix rounded-bottom p-3">
-          <div class="booking-summary bg-white">
+        <div class="booking-summary__container clearfix rounded-bottom">
+          <div class="booking-summary bg-white p-2">
 
           <h3 class="pl-4">BOOKING SUMMARY</h3>
           <hr class="summary-line mx-4">
           <div class="booking-summary__subcontainer w-100">
             <div class="bookin-summary__subcontainer--check-in summary-item__left float-left border-right pl-4">
               <h5 class="pb-2">CHECK IN</h5>
-              <div id="checkInResult" class="mb-2"></div>
               <p>12pm - 11pm</p>
+              <div id="checkInResult" class="mb-2"></div>
             </div>
             <div class="bookin-summary__subcontainer--check-out summary-item__left float-left pl-4 border-right">
               <h5 class="pb-2">CHECK OUT</h5>
-              <div id="checkOutResult" class="mb-2"></div>
               <p>6am - 12pm</p>
+              <div id="checkOutResult" class="mb-2"></div>
             </div>
             <div class="bookin-summary__subcontainer--guests summary-item__left float-left pl-4 border-right">
               <h5 class="pb-2">GUESTS</h5>
@@ -232,7 +239,7 @@
         </div>
         <!-- BOOK BUTTON -->
 
-          <div class="book-btn clearfix float-right text-white rounded text-center pt-5" id="book-btn">
+          <div class="book-btn clearfix float-right text-white rounded text-center pt-3 my-4" id="book-btn">
             <p>BOOK</p>
           </div>
         </div>
