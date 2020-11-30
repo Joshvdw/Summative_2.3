@@ -11,13 +11,13 @@
 // ==========================================================
 
 $(document).ready(function(){
-  $("#accommodation-options, #accommodation-details, #booking-confirmation").hide();
+  $("#accommodation-options, #homepage, #booking-confirmation").hide();
 
   $("#search-btn").click(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();
     $('#accommodation-options').show();
   });
-  $("#details-btn, #101, #102, #103, #104").click(function(){
+  $("#footer").click(function(){
     $('#homepage, #accommodation-options, #booking-confirmation').hide();
     $('#accommodation-details').show();
     $('#footer').hide();
@@ -78,6 +78,9 @@ var accommodation = [
     price : 30,
     bgImg : 'bgImg1',
     image : 'hostel-1.jpg',
+    carousel1 : 'hostel-carousel-1.jpeg',
+    carousel2 : 'hostel-carousel-2.jpg',
+    carousel3 : 'hostel-carousel-3.jpg',
     latitude : -45.031200,
     longitude : 168.660690,
     minGuests : 1,
@@ -96,6 +99,9 @@ var accommodation = [
     price : 90,
     bgImg : 'bgImg2',
     image : 'motel-2-4.jpg',
+    carousel1 : 'motel-carousel-1.jpg',
+    carousel2 : 'motel-carousel-2.jpeg',
+    carousel3 : 'motel-carousel-3.jpg',
     latitude : -45.033850,
     longitude : 168.669430,
     minGuests : 2,
@@ -113,6 +119,9 @@ var accommodation = [
     price : 157,
     bgImg : 'bgImg3',
     image : 'hotel-1-2.jpg',
+    carousel1 : 'hotel-carousel-1.jpg',
+    carousel2 : 'hotel-carousel-2.jpg',
+    carousel3 : 'hotel-carousel-3.jpg',
     latitude : -45.028390,
     longitude : 168.687880,
     minGuests : 1,
@@ -130,6 +139,9 @@ var accommodation = [
     price : 240,
     bgImg : 'bgImg4',
     image : 'house-1-4.jpg',
+    carousel1 : 'house-carousel-1.jpg',
+    carousel2 : 'house-carousel-2.jpg',
+    carousel3 : 'house-carousel-3.jpg',
     latitude : -45.029890,
     longitude : 168.740710,
     minGuests : 1,
@@ -149,7 +161,8 @@ function displayCards(j){
   //access properties of objects using index number
   $('#cardResult').append( '<div class="p-3 w-50">' +
 '              <div class="card border-0 rounded float-left w-100 h-100">' +
-'                <div class="card-body rounded w-100 text-white bgImg" id="' + accommodation[j].bgImg + '">' +
+'                <div class="card-body rounded w-100 text-white p-0 bgImg" id="' + accommodation[j].bgImg + '">' +
+'                 <div class="h-50 clearfix d-block w-100">' +
 '                  <div class="card-textbox w-100 p-2 rounded-bottom">' +
 '                    <h5 class="card-title">' + accommodation[j].name + '</h5>' +
 '                    <p class="card-text">' + accommodation[j].address + '</p>' +
@@ -159,39 +172,27 @@ function displayCards(j){
 '                    <div class="price-textbox float-right">' +
 '                      <p class="pt-1">$' + accommodation[j].price + '/night</p>' +
 '                    </div>' +
+'                   </div>' +
 '                  </div>' +
 '                </div>' +
 '              </div>' +
 '            </div>'
-
-
                   ); //append ends here
-            // console.log(document.getElementsByClassName("bgImg"));
-            //   document.getElementsByClassName("bgImg")[j].style.backgroundImage = "url(accommodation[j].image)";
   } //displayCards
 
   // ==========================================================
   // Display Details
   // ==========================================================
 
-  // document.getElementById(accommodation[j].id).addEventListener('click', function(){
-  //   alert('Hello World')
-  // })
-  //
   // function displayDetails(j){
   //
   //   $('#accommodationResult').append (
   //
   //   )
-  //
   // }
+  //
+  // var id = document.getElementById('accommodation[j].id')
 
-  $("#details-btn, #101, #102, #103, #104").click(function(){
-    alert('clicked')
-    $('#homepage, #accommodation-options, #booking-confirmation').hide();
-    $('#accommodation-details').show();
-    $('#footer').hide();
-  });
 
   // ==========================================================
   // Display items as per user's input - breed filter call
@@ -340,7 +341,7 @@ $('#checkIn').datepicker({
   for (var i = 0 ; i < accommodation.length ; i++) {
     if (((days <= accommodation[i].maxDays) && (days >= accommodation[i].minDays)) && ((guestAmount <= accommodation[i].maxGuests) && (guestAmount >= accommodation[i].minGuests))) {
       // console.log('Display Card');
-      console.log(accommodation[i].name);
+      // console.log(accommodation[i].name);
       displayCards(i)
     } else if (days === 0) {
       alert('Please select a check in and check out date') //replace these with on screen messages
@@ -348,6 +349,17 @@ $('#checkIn').datepicker({
       // alert('No results. Please select different dates and try again.') //replace these with on screen messages
     }
   }
+
+
+// MODAL LOOP
+  // document.getElementsByClassName('details-btn__container)[0].addEventListener('click', function(){
+    for (var i = 0 ; i < accommodation.length ; i++) {
+      if (accommodation[i].id === accommodation[i].id) {
+        console.log(accommodation[i].id);
+        console.log('Open Modal');
+      }
+    }
+  // });
 
 }); //search button
 // var days;
@@ -366,6 +378,7 @@ $('#checkIn').datepicker({
 //  // $('#days').val(days);
 //  console.log(days);
 // }
+
 
 
 
