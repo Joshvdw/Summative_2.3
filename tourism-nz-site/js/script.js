@@ -12,7 +12,7 @@
 
 $(document).ready(function(){
   $("#accommodation-options, #homepage, #booking-confirmation").hide();
-
+    // $("#homepage").show();
   $("#search-btn").click(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();
     $('#accommodation-options').show();
@@ -78,7 +78,7 @@ var accommodation = [
     price : 30,
     bgImg : 'bgImg1',
     image : 'hostel-1.jpg',
-    carousel1 : 'hostel-carousel-1.jpeg',
+    carousel1 : 'hostel-carousel-1.jpg',
     carousel2 : 'hostel-carousel-2.jpg',
     carousel3 : 'hostel-carousel-3.jpg',
     latitude : -45.031200,
@@ -100,7 +100,7 @@ var accommodation = [
     bgImg : 'bgImg2',
     image : 'motel-2-4.jpg',
     carousel1 : 'motel-carousel-1.jpg',
-    carousel2 : 'motel-carousel-2.jpeg',
+    carousel2 : 'motel-carousel-2.jpg',
     carousel3 : 'motel-carousel-3.jpg',
     latitude : -45.033850,
     longitude : 168.669430,
@@ -163,7 +163,7 @@ function displayCards(j){
 '              <div class="card border-0 rounded float-left w-100 h-100">' +
 '                <div class="card-body rounded w-100 text-white p-0 bgImg" id="' + accommodation[j].bgImg + '">' +
 '                 <div class="h-50 clearfix d-block w-100">' +
-'                  <div class="card-textbox w-100 p-2 rounded-bottom">' +
+'                  <div class="card-textbox w-100 p-2 rounded-bottom clearfix">' +
 '                    <h5 class="card-title">' + accommodation[j].name + '</h5>' +
 '                    <p class="card-text">' + accommodation[j].address + '</p>' +
 '                    <div class="details-btn__container float-left" id="' + accommodation[j].id + '">' +
@@ -178,79 +178,27 @@ function displayCards(j){
 '              </div>' +
 '            </div>'
                   ); //append ends here
+   displayDetails();
   } //displayCards
 
-  // ==========================================================
-  // Display Details
-  // ==========================================================
 
-  // function displayDetails(j){
-  //
-  //   $('#accommodationResult').append (
-  //
-  //   )
-  // }
-  //
-  // var id = document.getElementById('accommodation[j].id')
+  function displayDetails() {
+    // console.log('modal');
+    $('.details-btn__container').click(function(){
+        console.log(this.id);
+        var i;
+        for (i = 0 ; i < accommodation.length ; i++) {
+          if (parseInt(this.id) === accommodation.id) {
+            console.log(accommodation.name);
+            callModal(accommodation.id);
+          }
+        }
+    });
+  }
 
-
-  // ==========================================================
-  // Display items as per user's input - breed filter call
-  // ==========================================================
-
-  // $('#showChoice').click(function(){
-  //   var inputArray = [];
-  //
-  //   //push user's choice into an array
-  //   if (samuel === 'checked') {
-  //         inputArray.push('Samuel');
-  //   }
-  //
-  //   if (uma === 'checked') {
-  //         inputArray.push('Uma');
-  //   }
-  //
-  //   if (michael === 'checked') {
-  //         inputArray.push('Michael');
-  //   }
-  //
-  //    if (tim === 'checked'){
-  //       inputArray.push('Tim');
-  //   }
-  //
-  //   //call the function to filter user's choice
-  //   filteredMovies(inputArray);
-  //
-  // });//showChoice click function
-
-
-  // ==========================================================
-  // Filter by movie type
-  // ==========================================================
-
-//   function filteredMovies(actorPicked){
-//     var cardIndex = [];
-//     var i,j,k;
-//     $('#result').text(' ');
-//     for(i = 0 ; i < movies.length; i++) {
-//       for (j = 0 ; j < actorPicked.length; j++){
-//         for (k = 0 ; k < movies[i].stars.length ; k++){
-//         if (actorPicked[j] === movies[i].stars[k]) {
-//           if (!(cardIndex.includes(i))) {
-//           cardIndex.push(i);
-//         }//if
-//       } //if
-//     } //for k
-//       }//for j
-//     }//for i
-//     for(i = 0 ; i < cardIndex.length; i++) {
-//     displayCards(cardIndex[i]);
-//     cardModal();
-//   }
-// }//
-
-
-
+  function callModal() {
+      // place modal here
+  }
 // ==========================================================
 // DATEPICKERS
 // ==========================================================
@@ -353,31 +301,82 @@ $('#checkIn').datepicker({
 
 // MODAL LOOP
   // document.getElementsByClassName('details-btn__container)[0].addEventListener('click', function(){
-    for (var i = 0 ; i < accommodation.length ; i++) {
-      if (accommodation[i].id === accommodation[i].id) {
-        console.log(accommodation[i].id);
-        console.log('Open Modal');
-      }
-    }
+    // for (var i = 0 ; i < accommodation.length ; i++) {
+    //   if (accommodation[i].id === accommodation[i].id) {
+    //     console.log(accommodation[i].id);
+    //     console.log('Open Modal');
+    //   }
+    // }
   // });
 
+  // TOTAL PRICE CALCULATION
+
+  function findPrice() {
+
+  }
+
+  var price = 90;
+  console.log(price);
+
+  var subtotal = calculateSubtotal(price, guestAmount, days)
+  console.log(subtotal);
+
+  var gst = calculateGst(subtotal);
+  console.log(gst);
+
+  var total = subtotal + gst;
+  console.log(total);
+
+  // Calcualte Subtotal
+  function calculateSubtotal(a, b, c) {
+    var subtotal = a * b * c;
+    return subtotal
+  }
+
+  // Calcualte GST
+  function calculateGst(a) {
+
+	var gst = a * 0.15;
+  return gst
+  console.log(gst);
+  }
+  // PUSH PRICE TO DOM
+  document.getElementById('subtotalResult').innerHTML = '$' + subtotal;
+  document.getElementById('gstResult').innerHTML = '$' + gst;
+  document.getElementById('totalResult').innerHTML = '$' + total;
+
+  // MEAL PRICE
+  var breakfast = 20;
+  var lunch = 25;
+  var dinner = 35;
+
+
+
+
+ var breakfastSelected = document.getElementById('inlineCheckbox1').checked;
+ var lunchSelected = document.getElementById('inlineCheckbox2').checked;
+ var dinnerSelected = document.getElementById('inlineCheckbox3').checked;
+
+ mealSelected();
+
+function mealSelected () {
+  if (breakfastSelected === true) {
+    return breakfast;
+    console.log('breakfast');
+  } else if (lunchSelected === true) {
+    return lunch;
+    console.log('lunch');
+  } else if (dinnerSelected === true) {
+    return dinner;
+    console.log('dinner');
+  }
+}
+
+
+ // console.log(checkedValue);
+
+
 }); //search button
-// var days;
-// function dateDiff(){
-//   console.log(checkIn.value);
-//   console.log(checkOut.value);
-//
-//
-//  var start = $(checkIn).datepicker('getDate');
-//  var end = $(checkOut).datepicker('getDate');
-//
-//  console.log(start);
-//  console.log(end);
-//
-//  days = (end-start)/1000/60/60/24; //to get human readable days
-//  // $('#days').val(days);
-//  console.log(days);
-// }
 
 
 
