@@ -10,6 +10,15 @@ $font-family-sans-serif: 'Montserrat', 'sans-serif';
 
 @import '../bootstrap-4.5.3/scss/bootstrap.scss';
 
+
+#myModal{
+  position : fixed;
+  z-index : 3;
+  top : 50px;
+  left: 100px;
+  height: 700px;
+}
+
 // INHERITENCE
 text-shadow {
   text-shadow: 2px 4px 4px rgba(0,0,0,0.25);
@@ -58,13 +67,13 @@ body {
   background: rgba(0,0,0,0.35);
   width: 60%;
   @extend box-shadow;
-  font-size: 0.75vw;
+  font-size: .9em;
 }
 
 .homepage__input {
   height: 50px;
   @extend box-shadow;
-  width: 85%;
+  width: 100%;
 }
 
 .homepage__input--btn  {
@@ -74,6 +83,23 @@ body {
 
 .guest__icon {
   height: 50px;
+}
+
+@media (max-width: 1320px) {
+  .date-guest__box {
+    width: 80%;
+  }
+  .homepage__heading h1 {
+    font-size: 6vw;
+  }
+  .input-group-text {
+    padding-right: 0;
+  }
+  .homepage__input {
+    input {
+      font-size: .8rem;
+    }
+  }
 }
 
 // ACCOMMODATION OPTIONS PAGE
@@ -140,13 +166,13 @@ body {
 .bg-85 {
   background: rgba(0,0,0,0.85);
   h2 {
-    font-size: 2.7em;
+    font-size: 2.5em;
     letter-spacing: 1.8px;
   }
 }
 
 .outer {
-  width: 90%;
+  width: 80%;
 }
 
 .inner{
@@ -163,23 +189,61 @@ body {
 }
 
 .carouselContainer {
-  height: 40%;
+  height: 50%;
 }
 
 .mapContainer {
-  height: 60%;
+  height: 50%;
 }
 
 .myCarousel {
   height: 100%;
   width: 100%;
 }
+.booking-line {
+  display: none;
+}
+
+.booking-subcontainer {
+  margin: 0px!important;
+}
+
+.form-check-label {
+  font-size: .8em;
+}
+.mealContainer {
+  padding-left: 30px;
+}
 
 // GOOGLE MAPS API
 #map {
   width: 100%;
+  // width:400px;
   height: 100%;
-  // background: green;
+  // height: 400px;
+}
+
+@media (max-width: 1260px){
+  .carouselContainer {
+    height: 35%;
+  }
+  .mapContainer {
+    height: 65%;
+  }
+}
+
+@media (max-width: 1199px){
+  .meal-option {
+    padding-left: 1rem!important;
+  }
+  .cutBorder {
+    border-right: 0!important;
+  }
+  .booking-line {
+    width: 115%;
+    display: block;
+    margin-left: 1rem!important;
+  }
 }
 
 @media (min-width: 993px) {
@@ -191,7 +255,7 @@ body {
     }
 }
 
-@media (max-width: 992px){
+@media (max-width: 991px){
   .right {
     padding:0;
   }
@@ -205,6 +269,56 @@ body {
     width: 100%;
     margin: 0;
     padding-left: 0 !important;
+  }
+  .carouselContainer {
+    height: 450px;
+  }
+  .mapContainer {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px){
+  .guestMargin {
+    margin-top: 1.5rem;
+  }
+  .cutBorder2 {
+    border-right: 0!important;
+  }
+  .meal-option {
+    margin-bottom: 1.5rem!important;
+  }
+  .meal-line {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media (max-width: 726px ){
+
+  .carouselContainer {
+    height: 280px;
+  }
+  .bg-85 h2 {
+    font-size: 2em;
+  }
+  .booking-summary {
+    font-size: .9rem;
+    h6 {
+      font-size: .9rem;
+    }
+  }
+  .booking-subcontainer {
+    margin: 0!important;
+  }
+}
+
+@media (max-width: 589px){
+  .bg-85 h2 {
+    font-size: 1.5em;
+  }
+  .dinnerContainer {
+    margin-left: 25px;
   }
 }
 
