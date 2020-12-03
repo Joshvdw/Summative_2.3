@@ -19,16 +19,16 @@
     <div id="homepage">
 
 <!-- HEADING -->
-      <div class="homepage__heading text-center text-white">
+      <div class="homepage__heading col-11 col-sm-10 col-md-10 col-lg-12 col-xl-12 m-auto text-center text-white">
         <h1>YOUR QUEENSTOWN ADVENTURE AWAITS</h1>
       </div>
 
 <!-- DATE AND GUEST INPUT BOX -->
-      <div class="row date-guest__box mt-5 text-white m-auto clearfix rounded">
+      <div class="row col-11 col-sm-10 col-md-10 col-lg-10 col-xl-8 date-guest__box mt-5 text-white m-auto clearfix rounded">
 
 <!-- CHECK IN PICKER -->
-        <div class="row col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 date-container float-left py-4">
-          <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6  date-container__subcontainer float-left pl-3">
+        <div class="row col-12 col-sm-12 col-md-8 col-lg-8 col-xl-6 date-container float-left py-4">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6  date-container__subcontainer float-left pl-3">
             <p>CHECK IN</p>
             <div class="check-in__calendar homepage__input input-group bg-white mb-3 rounded">
               <div class="calender__icon input-group-prepend">
@@ -39,7 +39,7 @@
           </div>
 
 <!-- CHECK OUT PICKER -->
-          <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 date-container__subcontainer w-50 float-left pr-3">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 date-container__subcontainer w-50 float-left pr-3">
             <p>CHECK OUT</p>
             <div class="check-out__calendar homepage__input input-group bg-white mb-3 rounded">
               <div class="calender__icon input-group-prepend">
@@ -51,15 +51,15 @@
         </div>
 
 <!-- GUEST PICKER -->
-        <div class="row col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 guest-container py-4">
-          <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="row col-12 col-sm-12 col-md-4 col-lg-4 col-xl-6 guest-container py-4 px-0">
+          <div class="col-0 col-sm-0 col-md-0 col-lg-0 col-xl-6">
 
           </div>
-          <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 float-right pl-4">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 float-right pl-4">
             <p>GUESTS</p>
             <div class="guest__btn homepage__input mb-3 bg-white rounded">
               <div class="guest__icon input-group-prepend w-25 float-left">
-                <span class="input-group-text bg-white border-0" id="basic-addon3"><img src="images/icons/guests.png" alt="Guests Icon"></span>
+                <span class="input-group-text bg-white border-0" id="basic-addon3"><img src="images/icons/guests.png" class="guest-icon" alt="Guests Icon"></span>
               </div>
               <div class="float-right w-75">
                 <select class="form-control border-0 homepage__input--btn float-right d-inline w-100 mr-2" id="guests">
@@ -77,14 +77,15 @@
         </div>
       </div>
       <!-- SEARCH BUTTON -->
-      <div class="search-btn bg-primary mt-5 text-white rounded text-center pt-3" id="search-btn">
+      <div class="search-btn bg-primary mt-5 text-white rounded text-center pt-3 mb-5" id="search-btn">
         <p>SEARCH</p>
       </div>
+
     </div>
 
 <!-- ACCOMMODATION OPTIONS -->
     <div id="accommodation-options">
-      <div class="accommodation-options__container m-auto">
+      <div class="accommodation-options__container col-11 col-sm-10 col-md-9 col-lg-10 col-xl-8 m-auto">
         <div class="back-btn pl-3" id="back-btn__1">
           <p>BACK</p>
         </div>
@@ -92,6 +93,15 @@
         <div id="cardResult" class="row mx-auto clearfix w-100"></div>
       </div>
     </div>
+
+<!-- NO RESULTS -->
+  <!-- <div class="" id="noResult">
+    <h2>Sorry no results!</h2>
+  </div> -->
+
+
+
+<!-- ACCOMMODATION DETAILS -->
     <div class="" id="accommodation-details">
       <div class="myContainer m-auto mt-5">
         <div class="back-btn outer m-auto" id="back-btn__2">
@@ -214,7 +224,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 row pr-0">
             <hr class="booking-line">
             <!-- MEAL OPTIONS -->
-              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 border-right pl-4 cutBorder meal-option">
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-7 border-right pl-4 cutBorder meal-option">
                 <h6 class="pb-2">MEAL OPTION</h6>
                 <div class="row mealContainer">
                   <div class="col-6 form-check pl-0 pr-1 row">
@@ -240,7 +250,7 @@
                 </div>
               </div>
             <!-- TOTAL COST -->
-              <div class="pr-0 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 pl-4 row">
+              <div class="pr-0 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 pl-4 row">
                 <hr class="meal-line">
                 <div class="col-6 pr-4">
                   <p class="mb-3">Subtotal</p>
@@ -270,49 +280,36 @@
 
       <!-- BOOKING CONFIRMATION -->
       <div id="booking-confirmation">
-        <div class="booking-confirmation__container m-auto pb-4 text-white text-center rounded">
+        <div class="booking-confirmation__container m-auto pb-4 text-white text-center rounded col-sm-11 col-md-11 col-lg-10 col-xl-8">
           <img src="images/icons/tick.png" alt="Confirmation Tick Icon">
           <h2 class="pt-4 font-weight-bold">YOU ARE ALL BOOKED!</h2>
           <div id="reservationCodeResult"></div>
-          <p class="py-3">Your reservation code is #534523425</p>
+          <div class="py-3" id="randomNumberResult"></div>
           <hr class="bg-white w-50 m-auto">
           <br><br><br><br>
           <div id="emailConfirmation" class="text-left pl-4 my-0 py-0"></div>
-          <div class="booking-confirmation__subcontainer px-3 py-2">
-            <div class="booking-confirmation__subcontainer--email pr-2">
-              <input type="email" class="form-control w-25 float-left" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
+          <div class="booking-confirmation__subcontainer px-3 py-2 ">
+            <div class="itinerary__container col-sm-9 col-md-9 col-lg-5 col-xl-5 p-0 row m-auto float-left">
+              <div class="p-0 col-sm-7 col-md-7 col-lg-8 col-xl-8 mb-4">
+                <input type="email" class="form-control float-left" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
+              </div>
+              <div class="spacer col-1 p-0 m-0">
+
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-3 col-xl-3 p-0 mb-3">
+                <div class="send-btn text-white rounded text-center float-left w-100" id="send-btn">
+                  <p>SEND</p>
+                </div>
+              </div>
             </div>
-            <div class="send-btn text-white rounded text-center float-left ml-3" id="send-btn">
-              <p>SEND</p>
-            </div>
-            <div class="booking-confirmation__subcontainer--another-booking float-right text-white rounded text-center" id="other-booking">
+
+            <div class="booking-confirmation__subcontainer--another-booking text-white rounded text-center col-sm-9 col-md-9 col-lg-5 col-xl-5 m-auto bg-secondary" id="other-booking">
               <p>MAKE ANOTHER BOOKING</p>
             </div>
           </div>
           <br><br>
         </div>
       </div>
-
-
-
-
-
-<!-- Modal with map -->
-<!-- <div id="myModal" class="container bg-dark text-light">
-  <div class="row clearfix">
-
-    <div id="modalContent" class="col">
-
-    </div>
-    <div class="col">
-      <div id="map" class="">
-
-      </div>
-    </div>
-
-  </div>
-
-</div> -->
 
 
 
