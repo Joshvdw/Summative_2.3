@@ -1,92 +1,64 @@
 // ==========================================================
-// MAPKEY
-// ==========================================================
-
-// console.log(key); //key comes from external file mapKey.js
-var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&callback=initMap&libraries=&v=weekly" defer></script>'
-// console.log (script);
-
-// ==========================================================
   // NAVIGATION
 // ==========================================================
-
 $(document).ready(function(){
-  $('#myModal').hide();
+  $("#homepage").show();
   $("#accommodation-options, #accommodation-details, #booking-confirmation").hide();
-    // $("#homepage").show();
   $("#search-btn").click(function(){
-    $('#homepage, #accommodation-details, #booking-confirmation').hide();
+    $('#homepage, #accommodation-details, #booking-confirmation, #footer').hide();
     $('#accommodation-options').show();
   });
-  $("#footer").click(function(){
-    $('#homepage, #accommodation-options, #booking-confirmation').hide();
-    $('#accommodation-details').show();
-    $('#footer').hide();
-  });
   $("#book-btn").click(function(){
-    $('#homepage, #accommodation-options, #accommodation-details').hide();
+    $('#homepage, #accommodation-options, #accommodation-details, #noResult').hide();
     $('#booking-confirmation, #footer').show();
   });
   $("#back-btn__1").click(function(){
-    $('#accommodation-details, #accommodation-options, #booking-confirmation').hide();
+    $('#accommodation-details, #accommodation-options, #booking-confirmation, #noResult').hide();
     $('#homepage').show();
     $('#cardResult').empty();
   });
+  $("#back-btn__noResult").click(function(){
+    $('#homepage, #accommodation-details, #noResult, #booking-confirmation').hide();
+    $('#homepage, #footer').show();
+  });
   $("#back-btn__2").click(function(){
     $('#homepage, #accommodation-details, #booking-confirmation').hide();
-    $('#accommodation-options, #footer').show();
+    $('#accommodation-options').show();
   });
   $("#other-booking").click(function(){
     $('#cardResult').text('');
     $('#accommodation-details, #accommodation-options, #booking-confirmation').hide();
     $('#homepage').show();
   });
-
   $('body').append(script);
-
 }); //document ready
 
+var selectedId;
+
+// ==========================================================
 // GOOGLE MAP
+// ==========================================================
 function initMap(){
-  // console.log('map');
-  //callilng map from directions
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 15,
+      zoom: 10,
       center: { lat: -45.031200, lng: 168.660690 },
       mapTypeId : 'roadmap'
     });//map
-
-console.log(selectedId);
-
-    for (var i = 0 ; i < accommodation.length ; i++) {
-      if (accommodation[i].id === selectedId) {
-        var position = { lat: accommodation[i].latitude, lng: accommodation[i].longitude };
-        console.log(position);
-       // MARKER
-        var marker = new google.maps.Marker({
-          position: position,
-          map: map
-        });
-
-     }
-   }
-
 
     // ==========================================================
     // DATEPICKERS
     // ==========================================================
     var todayDate =new Date();
-
     var dd = String(todayDate.getDate()).padStart(2, '0');
-    var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var mm = String(todayDate.getMonth() + 1).padStart(2, '0');
     var yyyy = todayDate.getFullYear();
-
     todayDate = dd + '-' + mm + '-' + yyyy;
-    $('#checkIn').val(todayDate);
-    $('#checkOut').val(todayDate);
 
+    // OPTIONAL PLACEHOLDERS:
+    // $('#checkIn').val(todayDate);
+    // $('#checkOut').val(todayDate);
     var stDate;
-    var enDate
+    var enDate;
 
     $('#checkIn').datepicker({
        dateFormat : 'dd-mm-yy',
@@ -95,136 +67,82 @@ console.log(selectedId);
        maxDate : '+1y',
        onSelect : function(date){
          stDate = $(this).datepicker('getDate');
-         // var selectDate = new Date(date);
-         // var msecInADay  = 86400000;
-         // var stDate = new Date(selectDate.getTime() + msecInADay);
-
-         // convert date
-         // var dd = String(selectDate.getDate()).padStart(2, '0');
-         // var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-         // var yyyy = selectDate.getFullYear();
-         // console.log(dd + '-' + mm + '-' + yyyy);
-         // $('#checkIn').val(dd + '-' + mm + '-' + yyyy)
-
-        // console.log(stDate);
-
-         // $('#checkOut').datepicker('option', 'minDate', stDate);
-         // var checkOut = new Date(selectDate.getTime() + 15 * msecInADay);
-         // console.log(checkOut);
-         // $('#checkOut').datepicker('option', 'maxDate', checkOut);
-         // console.log(checkOut);
-       }
-     });
-     $('#checkIn').on('change', function() {
-        // var datearray = $('#checkIn').val().split("-");
-        // var montharray = ["Jan", "Feb", "Mar","Apr", "May", "Jun","Jul", "Aug", "Sep","Oct", "Nov", "Dec"];
-        // var year = "20" + datearray[2];
-        // var month = montharray.indexOf(datearray[1])+1;
-        // var day = datearray[0];
-        // var minDate = (year +"-"+ month +"-"+ day);
-        $('#checkOut').attr('min',minDate);
-
+       },
+       onClose: function (selectedDate, instance) {
+        if (selectedDate != '') {
+          var minDate2 = new Date(selectedDate);
+          minDate2.setDate(minDate2.getDate() + 1);
+            $("#checkOut").datepicker("option", "minDate", minDate2);
+            var date = $.datepicker.parseDate(instance.settings.dateFormat, selectedDate, instance.settings);
+            date.setDate(date.getDate() + 15);
+            $("#checkOut").datepicker("option", "minDate", selectedDate);
+            $("#checkOut").datepicker("option", "maxDate", date);
+          }
+        }
       });
+
      $('#checkOut').datepicker({
        dateFormat : 'dd-mm-yy',
        changeMonth : true,
        minDate :new Date(),
        maxDate : '+15d',
        onSelect : function(){
-       enDate = $(this).datepicker('getDate')
-       // minDate = $('#checkIn).val;
-       // var selectDate = new Date(date);
-       // console.log(selectDate);
-       // var msecInADay  = 86400000;
-       // var enDate = new Date(selectDate.getTime());
-       // console.log(enDate);
-       // // convert date
-       // var dd = String(selectDate.getDate()).padStart(2, '0');
-       // var mm = String(selectDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-       // var yyyy = selectDate.getFullYear();
-       // console.log(dd + '-' + mm + '-' + yyyy);
-       // $('#checkOut').val(dd + '-' + mm + '-' + yyyy)
-       // dateDiff(enDate)
-
-     }
+       enDate = $(this).datepicker('getDate');
+      }
      });
 
-
-    // SEARCH BUTTON CLICKED
+     // ==========================================================
+     // SEARCH BUTTON CLICK EVENT
+     // ==========================================================
     document.getElementById('search-btn').addEventListener('click', function(){
 
     var days = Math.ceil((enDate - stDate) / (1000 * 60 * 60 * 24)) ;
-         // console.log(days);
-    // var days = parseInt(days);
-    // console.log(days);
 
-
+    // CALCULATE GUESTS
      var guestAmount = document.getElementById('guests').value;
+     guestAmount = parseInt(guestAmount);
 
-     var guestAmount = parseInt(guestAmount)
-
-
+     // PUSH BOOKING SUMMARY
      document.getElementById('checkInResult').innerHTML = checkIn.value;
      document.getElementById('checkOutResult').innerHTML = checkOut.value;
      document.getElementById('guestsResult').innerHTML = guestAmount + ' ' + 'Guests';
      document.getElementById('daysResult').innerHTML = days + ' ' + 'Nights';
-     // console.log(typeof days);
-     // console.log(days);
-     //
-     // if (typeof days === 0) {
-     //   console.log('warning msg');
-     // } else {
-     //   console.log('no warning');
-     // };
-
 
      // CARD LOOP
      for (var i = 0 ; i < accommodation.length ; i++) {
-       if (((days <= accommodation[i].maxDays) && (days >= accommodation[i].minDays)) && ((guestAmount <= accommodation[i].maxGuests) && (guestAmount >= accommodation[i].minGuests))) {
-        // console.log(days);
-         displayCards(i);
-
-         // console.log('returned');
-         calculateSubtotal(i, guestAmount, days, meal);
-
-       } else {
-         // alert('No results. Please select different dates and try again.') //replace these with on screen messages
-         // console.log('display warning');
-         $('#noResult').show();
+        if ((isNaN(days)) || (days === 0) || (Math.sign(days) === -1)) {
+          $('#accommodation-options, #accommodation-details, #booking-confirmation, #footer').hide();
+          $('#homepage, #footer').show();
+          document.getElementById('noResult').innerHTML = 'Please input a valid date.';
+       }
+         if (((days <= accommodation[i].maxDays) && (days >= accommodation[i].minDays)) && ((guestAmount <= accommodation[i].maxGuests) && (guestAmount >= accommodation[i].minGuests))) {
+           displayCards(i);
+           calculateSubtotal(i, guestAmount, days);
        }
      }
 
-   var meal = 0;
-   // console.log(meal);
-
      // Calcualte Subtotal
-     function calculateSubtotal(k, guest, days, meal) {
-       // console.log(k, guest, days, meal);
+     function calculateSubtotal(k, guest, days) {
        var i;
        for (i = 0 ; i < accommodation.length ; i++) {
          if (k === i) {
-         var subtotal = accommodation[i].price * guest * days + meal;
-         console.log(subtotal);
-
+         var subtotal = accommodation[i].price * guest * days;
          var gst = subtotal * 0.15;
-         console.log(gst);
-
          var total = subtotal + gst;
-         console.log(total);
+
         // PUSH PRICE TO DOM
          document.getElementById('subtotalResult').innerHTML = '$' + subtotal;
          document.getElementById('gstResult').innerHTML = '$' + gst;
          document.getElementById('totalResult').innerHTML = '$' + total;
-
         }
        }
      }
-
     }); //search button
+
+
     // ==========================================================
     // Display cards
     // ==========================================================
-
     function displayCards(j){
       $('#cardResult').append( '<div class="p-3 col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">' +
     '              <div class="card border-0 rounded float-left w-100 h-100">' +
@@ -234,7 +152,7 @@ console.log(selectedId);
     '                    <h5 class="card-title">' + accommodation[j].name + '</h5>' +
     '                    <p class="card-text">' + accommodation[j].address + '</p>' +
     '                    <div class="details-btn__container float-left" id="' + accommodation[j].id + '">' +
-    '                      <p class="btn btn-primary text-white rounded text-center details-btn">Details</p>' +
+    '                      <p class="btn btn-primary text-white rounded text-center details-btn bg-primary">Details</p>' +
     '                    </div>' +
     '                    <div class="price-textbox float-right">' +
     '                      <p class="pt-1">$' + accommodation[j].price + '/night</p>' +
@@ -245,81 +163,172 @@ console.log(selectedId);
     '              </div>' +
     '            </div>'
                       ); //append ends here
-       displayDetails(accommodation[j].id);
-       return (accommodation[j].id);
+        displayDetails(accommodation[j].id);
       } //displayCards
 
-      var selectedId;
-
+      // ==========================================================
+      // Display Details
+      // ==========================================================
       function displayDetails(id) {
-
-        console.log(id);
         $('.details-btn__container').click(function(){
-            console.log(this.id);
             selectedId = this.id;
             var i;
             for (i = 0 ; i < accommodation.length ; i++) {
-              console.log(typeof(this.id), typeof(accommodation[i].id),accommodation[i].id);
               if (parseInt(this.id) === accommodation[i].id) {
-                console.log(accommodation[i].name, accommodation[i].price);
                 $('#homepage, #accommodation-options, #booking-confirmation').hide();
                 $('#accommodation-details').show();
                 $('#footer').hide();
-                // callMyFunction(i);
-                // callModal(accommodation.id);
 
                 callDescription(i);
                 callCarousel(i);
 
+                // MARKER
+                var position = { lat: accommodation[i].latitude, lng: accommodation[i].longitude };
+
+                var marker = new google.maps.Marker({
+                  position: position,
+                  map: map
+                });
               }
             }
+            //CLEAR CURRENT MARKER
+            $("#book-btn").click(function(){
+              marker.setMap(null);
+            });
+            $("#back-btn__2").click(function(){
+              marker.setMap(null);
+            });
+          });
+        } //display details
 
-            // MEAL CALCULATION
-      //       $('#inlineCheckbox1[type="checkbox"]').change(function(){
-      //
-      //       if($(this).prop("checked")){
-      //           // $("#result").html("Checkbox is checked.");
-      //           console.log('breakfast');
-      //           breakfast = 20;
-      //
-      //       }
-      //       else if($(this).prop("checked")){
-      //           // $("#result").html("Checkbox is unchecked.");
-      //           console.log('no breakfast');
-      //           breakfast = 0;
-      //       }
-      //     });
-      //     $('#inlineCheckbox2[type="checkbox"]').click(function(){
-      //     if($(this).prop("checked")){
-      //         // $("#result").html("Checkbox is checked.");
-      //         console.log('lunch');
-      //         lunch = 25;
-      //     }
-      //     else if($(this).prop("checked")){
-      //         // $("#result").html("Checkbox is unchecked.");
-      //         console.log('no lunch');
-      //         lunch = 0;
-      //     }
-      //   });
-      //   $('#inlineCheckbox3[type="checkbox"]').click(function(){
-      //   if($(this).prop("checked")){
-      //       // $("#result").html("Checkbox is checked.");
-      //       console.log('dinner');
-      //       dinner = 35;
-      //   }
-      //   else if($(this).prop("checked")){
-      //       // $("#result").html("Checkbox is unchecked.");
-      //       console.log('no dinner');
-      //       dinner = 0;
-      //   }
-      // });
+        // MEAL PRICES
+        var breakfast = 20;
+        var lunch = 25;
+        var dinner = 35;
 
-      // meal = breakfast + lunch + dinner;
-      // console.log(meal);
+        // ==========================================================
+        // MEAL CALCULATOR
+        // ==========================================================
+
+          // Breakfast Checkbox
+          $('#inlineCheckbox1[type="checkbox"]').change(function(){
+          if($(this).prop("checked")){
+              var subtotal = $('#subtotalResult').text();
+              var mealTotal = addMeal(subtotal, breakfast);
+              var gst = mealTotal * 0.15;
+              var total = mealTotal + gst;
+              pushMealResult(mealTotal, gst, total);
+          }
+          else if (!$(this).prop("checked")){
+              subtotal = $('#subtotalResult').text();
+              mealTotal = minusMeal(subtotal, breakfast);
+              gst = mealTotal * 0.15;
+              total = mealTotal + gst;
+              pushMealResult(mealTotal, gst, total);
+          }
+          $('#inlineCheckbox1[type="checkbox"]').on('change', function() {
+            $('#inlineCheckbox4[type="checkbox"]').not(this).prop('checked', false);
+          });
         });
+
+        // Lunch Checkbox
+        $('#inlineCheckbox2[type="checkbox"]').change(function(){
+        if($(this).prop("checked")){
+            var subtotal = $('#subtotalResult').text();
+            var mealTotal = addMeal(subtotal, lunch);
+            var gst = mealTotal * 0.15;
+            var total = mealTotal + gst;
+            pushMealResult(mealTotal, gst, total);
+        }
+        else if(!$(this).prop("checked")){
+            subtotal = $('#subtotalResult').text();
+            var mealTotal = minusMeal(subtotal, lunch);
+            gst = mealTotal * 0.15;
+            total = mealTotal + gst;
+            pushMealResult(mealTotal, gst, total);
+        }
+        $('#inlineCheckbox2[type="checkbox"]').on('change', function() {
+          $('#inlineCheckbox4[type="checkbox"]').not(this).prop('checked', false);
+        });
+      });
+
+      // Dinner Checkbox
+      $('#inlineCheckbox3[type="checkbox"]').change(function(){
+      if($(this).prop("checked")){
+          var subtotal = $('#subtotalResult').text();
+          var mealTotal = addMeal(subtotal, dinner);
+          var gst = mealTotal * 0.15;
+          var total = mealTotal + gst;
+          pushMealResult(mealTotal, gst, total);
+      }
+      else if(!$(this).prop("checked")){
+          subtotal = $('#subtotalResult').text();
+          var mealTotal = minusMeal(subtotal, dinner);
+          gst = mealTotal * 0.15;
+          total = mealTotal + gst;
+          pushMealResult(mealTotal, gst, total);
+      }
+      $('#inlineCheckbox3[type="checkbox"]').on('change', function() {
+        $('#inlineCheckbox4[type="checkbox"]').not(this).prop('checked', false);
+      });
+    });
+
+      // None Checkbox
+      $('#inlineCheckbox4[type="checkbox"]').change(function(){
+      if ($('#inlineCheckbox1').prop("checked")){
+          var subtotal = $('#subtotalResult').text();
+          var mealTotal = minusMeal(subtotal, breakfast);
+          var gst = mealTotal * 0.15;
+          var total = mealTotal + gst;
+          pushMealResult(mealTotal, gst, total);
+      }
+      if ($('#inlineCheckbox2').prop("checked")){
+          subtotal = $('#subtotalResult').text();
+          var mealTotal = minusMeal(subtotal, lunch);
+          gst = mealTotal * 0.15;
+          total = mealTotal + gst;
+          pushMealResult(mealTotal, gst, total);
+      }
+      if ($('#inlineCheckbox3').prop("checked")){
+          subtotal = $('#subtotalResult').text();
+          var mealTotal = minusMeal(subtotal, dinner);
+          gst = mealTotal * 0.15;
+          total = mealTotal + gst;
+          pushMealResult(mealTotal, gst, total);
+        }
+      });
+
+      // CLEAR CHECKBOXES ON WHEN NONE IS SELECTED
+      $('#inlineCheckbox4[type="checkbox"]').on('change', function() {
+        $('#inlineCheckbox1[type="checkbox"]').not(this).prop('checked', false);
+        $('#inlineCheckbox2[type="checkbox"]').not(this).prop('checked', false);
+        $('#inlineCheckbox3[type="checkbox"]').not(this).prop('checked', false);
+      });
+
+      // Add Meal Price Function
+      function addMeal(subtotal, meal) {
+        subtotal = subtotal.replace(/\$/g,'');
+        subtotal = parseInt(subtotal);
+        var mealTotal = subtotal + meal;
+        return mealTotal;
       }
 
+      // Minus Meal Price Function
+      function minusMeal(subtotal, meal) {
+        subtotal = subtotal.replace(/\$/g,'');
+        subtotal = parseInt(subtotal);
+        var mealTotal = subtotal - meal;
+        return mealTotal;
+      }
 
+      // PUSH UPDATED MEAL PRICE TO DOM
+      function pushMealResult(subtotal, gst, total) {
+         document.getElementById('subtotalResult').innerHTML = '$' + subtotal;
+         document.getElementById('gstResult').innerHTML = '$' + gst;
+         document.getElementById('totalResult').innerHTML = '$' + total;
+      }
+
+      // Call Description
       function callDescription(j){
         $('#descriptionResult').text('');
         $('#descriptionResult').append(
@@ -327,9 +336,10 @@ console.log(selectedId);
         '                  <h2 class="font-weight-bold mb-4">' + accommodation[j].name + '</h2>' +
         '                  <hr class="bg-white w-75 mx-0 mb-3">' +
         '                  <p class="pt-2">' + accommodation[j].description + '</p>' +
-        '                </div>')
+        '                </div>');
       }
 
+      // Call Carousel
       function callCarousel(j){
         $('#carouselResult').text('');
         $('#carouselResult').append(
@@ -356,77 +366,49 @@ console.log(selectedId);
           '                      <span class="carousel-control-next-icon" aria-hidden="true"></span>' +
           '                      <span class="sr-only">Next</span>' +
           '                    </a>' +
-          '                  </div>')
+          '                  </div>');
       }
-
-
-
-
-
-
-     // var breakfastSelected = document.getElementById('inlineCheckbox1').checked;
-     // var lunchSelected = document.getElementById('inlineCheckbox2').checked;
-     // var dinnerSelected = document.getElementById('inlineCheckbox3').checked;
-    //
-    //  mealSelected();
-    //
-    // function mealSelected () {
-    //   if (breakfastSelected === true) {
-    //     return breakfast;
-    //     console.log('breakfast');
-    //   } else if (lunchSelected === true) {
-    //     return lunch;
-    //     console.log('lunch');
-    //   } else if (dinnerSelected === true) {
-    //     return dinner;
-    //     console.log('dinner');
-    //   }
-    // }
 
     // REFERENCE NUMBER GENERATOR
     document.getElementById("randomNumberResult").innerHTML = 'Your reservation code is #' +
     Math.floor(Math.random() * 1000000000) + 1;
 
-
     // EMAIL CONFIRMATION
     document.getElementById('send-btn').addEventListener('click', function(){
-      var email = document.getElementById('emailInput').value
-
+      var email = document.getElementById('emailInput').value;
       ValidateEmail(email);
-
-      function ValidateEmail(inputText)
-      {
+      function ValidateEmail(inputText) {
       var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if(emailInput.value.match(mailformat))
-      {
-      document.getElementById('emailConfirmation').innerHTML = 'Itinerary sent!'
+      if(emailInput.value.match(mailformat)) {
+      document.getElementById('emailConfirmation').innerHTML = 'Itinerary sent!';
       }
-      else
-      {
-      document.getElementById('emailConfirmation').innerHTML = "<p style='color:red'>Please input a valid email address</p>"
+      else {
+      document.getElementById('emailConfirmation').innerHTML = "<p class='text-danger'>Please input a valid email address</p>";
       }
-      }
+    }
+  });
+ } // end of map
 
-
-    });
-
-
-
-} // end of map
-
+// ==========================================================
+// MAPKEY
+// ==========================================================
+var script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key + '&callback=initMap&libraries=&v=weekly" defer></script>';
 
 // ==========================================================
   // ARRAY OF OBJECTS DECLARATION
 // ==========================================================
-
 var accommodation = [
   {
     id : 101,
     name : 'Adventure Queenstown Hostel',
-    description : 'Welcome to Adventure Queenstown Hostel.' +
-                  'Catering to independent travellers from around the world we offer mostly shared room accommodation and run in-house activities 5 nights a week to make it easy to meet fellow explorers from all around the world.' +
-                  'There is a tour desk where our friendly staff can help you plan your activities, as well as a separate storage/locker room with secure bicycle parking and ski & snowboard storage. We offer loads of free stuff and even a simple laundry service.' +
-                  'We’re a smaller hostel with a maximum capacity of just 43 people - the perfect number for keeping a family atmosphere which is still fun and vibrant.' +
+    description : 'Welcome to Adventure Queenstown Hostel.' + '<br>' +
+                  '<br>' +
+                  'Catering to independent travellers from around the world we offer mostly shared room accommodation and run in-house activities 5 nights a week to make it easy to meet fellow explorers from all around the world.' + '<br>' +
+                  '<br>' +
+                  'There is a tour desk where our friendly staff can help you plan your activities, as well as a separate storage/locker room with secure bicycle parking and ski & snowboard storage. We offer loads of free stuff and even a simple laundry service.' + '<br>' +
+                  '<br>' +
+                  'We’re a smaller hostel with a maximum capacity of just 43 people - the perfect number for keeping a family atmosphere which is still fun and vibrant.' + '<br>' +
+                  '<br>' +
                   'Being the most central accommodation in town, you’re just a minutes walk to everything. At night you can sleep soundly as there are no bars directly by us.',
     address : '36 Camp Street, Queenstown',
     price : 30,
@@ -445,9 +427,9 @@ var accommodation = [
   {
     id : 102,
     name : 'Queenstown Motel Apartments',
-    description : 'Welcome to  Queenstown Motel Apartments.' +
-                  'Conveniently located at 7-8 minutes walk from town centre, Queenstown Motel Apartments offer comfortable rooms with free guest wifi and free on-site parking. We are a self-rated 4-Star property. Our modern rooms include en-suite and kitchenette (fridge, microwave, tea/coffee making facilities, toaster, kettle and cutlery).' +
-                  'Only a one minute walk to both the Millennium Hotel and the Copthorne Lakeview, we are a popular alternative for conference attendees. Skyline Gondola is 15 minute walk. Queenstown Airport is 10 minute drive and Remarkables Ski is approx. 35 minute drive.' +
+    description : 'Welcome to  Queenstown Motel Apartments.' + '<br>' +
+                  'Conveniently located at 7-8 minutes walk from town centre, Queenstown Motel Apartments offer comfortable rooms with free guest wifi and free on-site parking. We are a self-rated 4-Star property. Our modern rooms include en-suite and kitchenette (fridge, microwave, tea/coffee making facilities, toaster, kettle and cutlery).' + '<br>' +
+                  'Only a one minute walk to both the Millennium Hotel and the Copthorne Lakeview, we are a popular alternative for conference attendees. Skyline Gondola is 15 minute walk. Queenstown Airport is 10 minute drive and Remarkables Ski is approx. 35 minute drive.' + '<br>' +
                   'Weather you are travelling for work or recreation, Queenstown Motel Apartments offer a comfortable stay in the perfect spot. We look forward to hosting you.',
     address : '62 Frankton Road, Queenstown',
     price : 90,
@@ -466,8 +448,8 @@ var accommodation = [
   {
     id : 103,
     name : 'The Rees Hotel',
-    description : 'The Rees offers a variety of spacious and luxurious accommodation options including 60 Hotel rooms, 90 Apartments and five private, 3-bedroom, 3-bathroom Lakeside Residences, all with terraces, showcasing spectacular views across Lake Wakatipu to the alpine panorama of the Remarkable Mountain range.' +
-                  'The many exceptional features at The Rees Hotel include a library of rare books and art, courtesy shuttle to/from Queenstown town centre, complimentary high-speed Wi-Fi, movies and local telephone calls, conference rooms, a fully-equipped gymnasium, secure undercover parking, electric car-charging station and its own private beach and wharf accessing jet-boat and water taxi services.' +
+    description : 'The Rees offers a variety of spacious and luxurious accommodation options including 60 Hotel rooms, 90 Apartments and five private, 3-bedroom, 3-bathroom Lakeside Residences, all with terraces, showcasing spectacular views across Lake Wakatipu to the alpine panorama of the Remarkable Mountain range.' + '<br>' + '<br>' +
+                  'The many exceptional features at The Rees Hotel include a library of rare books and art, courtesy shuttle to/from Queenstown town centre, complimentary high-speed Wi-Fi, movies and local telephone calls, conference rooms, a fully-equipped gymnasium, secure undercover parking, electric car-charging station and its own private beach and wharf accessing jet-boat and water taxi services.' + '<br>' + '<br>' +
                   'Our team of experienced local and international staff pride themselves on delivering professional friendly service that consistently exceeds our guests’ expectations and is a hallmark of The Rees Hotel’s reputation.',
     address : '377 Frankton Road, Queenstown',
     price : 157,
@@ -486,8 +468,8 @@ var accommodation = [
   {
     id : 104,
     name : 'Queenstown House Homestay',
-    description : "A newly built single-family home within South Island's finest golf course, Jackpoint Complex, a neighborhood used for local residential use rather than tourist use." +
-                  'Jackpoint Clubhouse and golf course are a five-minute walk away, followed by dinner and golf practice.' +
+    description : "A newly built single-family home within South Island's finest golf course, Jackpoint Complex, a neighborhood used for local residential use rather than tourist use." + '<br>' + '<br>' +
+                  'Jackpoint Clubhouse and golf course are a five-minute walk away, followed by dinner and golf practice.' + '<br>' + '<br>' +
                   'Approximately 10 minutes by car from the airport, 18 minutes from Queenstown, 30 minutes from Aerotown, 25 minutes from Milbrook Resort, 25 minutes from Remarkable Ski Area, 35 minutes from Coronet Pic Ski Area and Remarkable Shopping Center',
     address : '25 Kawarau Place, Queenstown',
     price : 240,

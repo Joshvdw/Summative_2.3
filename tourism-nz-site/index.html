@@ -19,12 +19,12 @@
     <div id="homepage">
 
 <!-- HEADING -->
-      <div class="homepage__heading col-11 col-sm-10 col-md-10 col-lg-12 col-xl-12 m-auto text-center text-white">
-        <h1>YOUR QUEENSTOWN ADVENTURE AWAITS</h1>
+      <div class="fade-in homepage__heading col-11 col-sm-10 col-md-10 col-lg-12 col-xl-12 m-auto text-center text-white">
+        <h1 class="heading">YOUR QUEENSTOWN ADVENTURE AWAITS</h1>
       </div>
 
 <!-- DATE AND GUEST INPUT BOX -->
-      <div class="row col-11 col-sm-10 col-md-10 col-lg-10 col-xl-8 date-guest__box mt-5 text-white m-auto clearfix rounded">
+      <div class="fade-in row col-11 col-sm-10 col-md-10 col-lg-10 col-xl-8 date-guest__box mt-5 text-white m-auto clearfix rounded">
 
 <!-- CHECK IN PICKER -->
         <div class="row col-12 col-sm-12 col-md-8 col-lg-8 col-xl-6 date-container float-left py-4">
@@ -32,9 +32,9 @@
             <p>CHECK IN</p>
             <div class="check-in__calendar homepage__input input-group bg-white mb-3 rounded">
               <div class="calender__icon input-group-prepend">
-                <span class="input-group-text bg-white border-0" id="basic-addon1"><img src="images/icons/calender.png" alt="Calender Icon"></span>
+                <span class="input-group-text bg-white border-0" id="basic-addon1"><img id="date-icon1" src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
-              <input type="text" class="form-control border-0 rounded homepage__input--btn float-right d-inline" id="checkIn" autocomplete="off" aria-describedby="basic-addon1">
+              <input type="text" class="form-control border-0 rounded homepage__input--btn float-right d-inline" id="checkIn" autocomplete="off" placeholder="" aria-describedby="basic-addon1">
             </div>
           </div>
 
@@ -45,16 +45,14 @@
               <div class="calender__icon input-group-prepend">
                 <span class="input-group-text bg-white border-0" id="basic-addon2"><img src="images/icons/calender.png" alt="Calender Icon"></span>
               </div>
-              <input type="text" class="form-control border-0 rounded homepage__input--btn float-right d-inline" id="checkOut" autocomplete="off" aria-describedby="basic-addon1">
+              <input type="text" class="form-control border-0 rounded homepage__input--btn float-right d-inline" id="checkOut" autocomplete="off" placeholder="" aria-describedby="basic-addon1">
             </div>
           </div>
         </div>
 
 <!-- GUEST PICKER -->
         <div class="row col-12 col-sm-12 col-md-4 col-lg-4 col-xl-6 guest-container py-4 px-0">
-          <div class="col-0 col-sm-0 col-md-0 col-lg-0 col-xl-6">
-
-          </div>
+          <div class="col-0 col-sm-0 col-md-0 col-lg-0 col-xl-6"></div>
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 float-right pl-4">
             <p>GUESTS</p>
             <div class="guest__btn homepage__input mb-3 bg-white rounded">
@@ -68,19 +66,19 @@
                     <option selected>2 Guests</option>
                     <option>3 Guests</option>
                     <option>4 Guests</option>
-                    <option>5 Guests</option>
                   </optgroup>
                 </select>
               </div>
             </div>
           </div>
         </div>
+        <!-- NO RESULTS - ERROR MSG -->
+        <div class="text-white my-0 pb-4 text-center m-auto" id="noResult"></div>
       </div>
       <!-- SEARCH BUTTON -->
-      <div class="search-btn bg-primary mt-5 text-white rounded text-center pt-3 mb-5" id="search-btn">
-        <p>SEARCH</p>
+      <div class="fade-in m-auto col-5 col-sm-3 col-md-2 col-lg-2 col-xl-2">
+        <button class="search-btn bg-primary mt-5 border-0 text-white rounded text-center pt-1 mb-5 w-100" id="search-btn" type="button" name="button">SEARCH</button>
       </div>
-
     </div>
 
 <!-- ACCOMMODATION OPTIONS -->
@@ -94,13 +92,6 @@
       </div>
     </div>
 
-<!-- NO RESULTS -->
-  <!-- <div class="" id="noResult">
-    <h2>Sorry no results!</h2>
-  </div> -->
-
-
-
 <!-- ACCOMMODATION DETAILS -->
     <div class="" id="accommodation-details">
       <div class="myContainer m-auto mt-5">
@@ -110,23 +101,13 @@
       <div class="row outer clearfix m-auto">
         <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 left">
           <div id="descriptionResult" class="row clearfix text-white mb-3 bg-85 rounded-top">
-            <!-- DESCRIPTION -->
-            <!-- <div class="p-4 rounded-top mb-4">
-              <h2 class="font-weight-bold mb-4">ADVENTURE QUEENSTOWN HOSTEL</h2>
-              <hr class="bg-white w-75 mx-0 mb-3">
-              <p class="pt-2">Welcome to Adventure Queenstown Hostel.</p>
-              <p>Catering to independent travellers from around the world we offer mostly shared room accommodation and run in-house activities 5 nights a week to make it easy to meet fellow explorers from all around the world.</p>
-              <p>There is a tour desk where our friendly staff can help you plan your activities, as well as a separate storage/locker room with secure bicycle parking and ski & snowboard storage. We offer loads of free stuff and even a simple laundry service.</p>
-              <p>We’re a smaller hostel with a maximum capacity of just 43 people - the perfect number for keeping a family atmosphere which is still fun and vibrant.</p>
-              <p>Being the most central accommodation in town, you’re just a minutes' walk to everything. At night you can sleep soundly as there are no bars directly by us.</p>
-            </div> -->
+            <!-- DESCRIPTION RESULT HERE-->
           </div>
 
-          <div class="row rounded-bottom text-center bg-85 text-light p-4 clearfix mb-3">
             <!-- FACILITIES -->
+          <div class="row rounded-bottom text-center bg-85 text-light p-4 clearfix mb-3">
             <div class="d-block col-12">
               <h4 class="text-left mb-4">FACILITIES</h4>
-
             </div>
               <div class="col-4 col-sm-4 col-md-3 col-lg-3 iconCol">
                 <img class="iconImg mb-2" src="images/icons/wifi.png" alt="Wifi Icon">
@@ -165,34 +146,10 @@
 
           <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 right">
             <div id="carouselResult" class="carouselContainer row rounded-top mx-auto w-100 clearfix pb-3">
-              <!-- IMAGE -->
-              <!-- <div id="carouselExampleControls" class="carousel slide myCarousel" data-ride="carousel">
-                <div class="carousel-inner inner h-100">
-                  <div class="carousel-item active h-100">
-                    <img class="d-block img-fluid w-100 h-100" src="images/accommodation/hostel-1.jpg" alt="First slide">
-                  </div>
-                  <div class="carousel-item h-100">
-                    <img class="d-block img-fluid w-100 h-100" src="images/accommodation/hostel-carousel-1.jpg" alt="Second slide">
-                  </div>
-                  <div class="carousel-item h-100">
-                    <img class="d-block img-fluid w-100 h-100" src="images/accommodation/hostel-carousel-2.jpg" alt="Third slide">
-                  </div>
-                  <div class="carousel-item h-100">
-                    <img class="d-block img-fluid w-100 h-100" src="images/accommodation/hostel-carousel-3.jpg" alt="Fourth slide">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div> -->
+              <!-- CAROUSEL RESULT HERE-->
             </div>
             <div class="mapContainer row clearfix pl-3 pb-3 mb-3">
-              <!-- MAP -->
+              <!-- MAP HERE -->
               <div class="" id="map"></div>
             </div>
           </div>
@@ -216,7 +173,7 @@
               <div class="cutBorder col-sm-12 col-md-4 col-lg-4 col-xl-4 pl-3 border-right">
                 <h6 class="pb-2 pl-0 guestMargin">GUESTS</h6>
                 <div class="row pl-3">
-                  <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12 pl-0 mb-3" id="guestsResult" class="mb-3"></div>
+                  <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12 pl-0 mb-3" id="guestsResult"></div>
                   <div class="col-6 col-sm-6 col-md-12 col-lg-12 col-xl-12 pl-0" id="daysResult"></div>
                 </div>
               </div>
@@ -274,51 +231,47 @@
           </div>
         </div>
       </div>
-
     </div>
 
-
-      <!-- BOOKING CONFIRMATION -->
-      <div id="booking-confirmation">
-        <div class="booking-confirmation__container m-auto pb-4 text-white text-center rounded col-sm-11 col-md-11 col-lg-10 col-xl-8">
-          <img src="images/icons/tick.png" alt="Confirmation Tick Icon">
-          <h2 class="pt-4 font-weight-bold">YOU ARE ALL BOOKED!</h2>
-          <div id="reservationCodeResult"></div>
-          <div class="py-3" id="randomNumberResult"></div>
-          <hr class="bg-white w-50 m-auto">
-          <br><br><br><br>
-          <div id="emailConfirmation" class="text-left pl-4 my-0 py-0"></div>
-          <div class="booking-confirmation__subcontainer px-3 py-2 ">
-            <div class="itinerary__container col-sm-9 col-md-9 col-lg-5 col-xl-5 p-0 row m-auto float-left">
-              <div class="p-0 col-sm-7 col-md-7 col-lg-8 col-xl-8 mb-4">
-                <input type="email" class="form-control float-left" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
-              </div>
-              <div class="spacer col-1 p-0 m-0">
-
-              </div>
-              <div class="col-sm-4 col-md-4 col-lg-3 col-xl-3 p-0 mb-3">
-                <div class="send-btn text-white rounded text-center float-left w-100" id="send-btn">
-                  <p>SEND</p>
-                </div>
-              </div>
+    <!-- BOOKING CONFIRMATION -->
+    <div id="booking-confirmation">
+      <div class="booking-confirmation__container m-auto pb-4 text-white text-center rounded col-sm-9 col-md-9 col-lg-9 col-xl-8">
+        <img src="images/icons/tick.png" alt="Confirmation Tick Icon">
+        <h2 class="pt-4 font-weight-bold">YOU ARE ALL BOOKED!</h2>
+        <div id="reservationCodeResult"></div>
+        <div class="py-3" id="randomNumberResult"></div>
+        <hr class="bg-white w-50 m-auto">
+        <br><br><br><br>
+        <!-- EMAIL CONFIRMATION - ERROR MSG HERE -->
+        <div id="emailConfirmation" class="text-left pl-5 my-0 py-0"></div>
+        <div class="booking-confirmation__subcontainer px-3 py-2 row">
+          <div class="itinerary__container col-sm-9 col-md-9 col-lg-5 col-xl-5 p-0 row m-auto float-left">
+            <!-- EMAIL INPUT -->
+            <div class="p-0 col-sm-7 col-md-7 col-lg-8 col-xl-8 mb-4">
+              <input type="email" class="form-control float-left" onfocus="this.placeholder=''" id="emailInput" placeholder="Email Itinerary">
             </div>
-
-            <div class="booking-confirmation__subcontainer--another-booking text-white rounded text-center col-sm-9 col-md-9 col-lg-5 col-xl-5 m-auto bg-secondary" id="other-booking">
-              <p>MAKE ANOTHER BOOKING</p>
+            <div class="spacer col-1 p-0 m-0"></div>
+            <!-- SEND BUTTON -->
+            <div class="col-sm-4 col-md-4 col-lg-3 col-xl-3 p-0 mb-3">
+              <div class="w-100">
+                <button class="border-0 send-btn text-white pt-1 rounded text-center float-left w-100 bg-primary" id="send-btn" type="button" name="button">SEND</button>
+              </div>
             </div>
           </div>
-          <br><br>
+          <!-- MAKE ANOTHER BOOKING BUTTON -->
+          <div class="col-sm-9 col-md-9 col-lg-5 col-xl-5 mt-0 px-0 float-right mx-auto">
+            <button class="border-0 text-white pt-1 rounded text-center w-100 bg-secondary" id="other-booking" type="button" name="button">MAKE ANOTHER BOOKING</button>
+          </div>
         </div>
       </div>
+    </div>
 
-
-
-    <!-- LOGOS -->
+    <!-- FOOTER LOGOS -->
     <footer id="footer">
-      <div class="tourism__logo">
+      <div class="tourism__logo fade-in">
         <a target="_blank" href="https://www.tourismnewzealand.com/"><img src="images/logos/tourism-logo.png" alt="Tourism NZ Logo"></a>
       </div>
-      <div class="pure-nz__logo">
+      <div class="pure-nz__logo fade-in">
         <a target="_blank" href="https://www.newzealand.com/nz/"><img src="images/logos/pure-logo.png" alt="100% Pure NZ Logo"></a>
       </div>
     </footer>

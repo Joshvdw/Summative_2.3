@@ -1,11 +1,5 @@
 // HOMEPAGE
 @media (max-width: 1320px) {
-  // .date-guest__box {
-  //   width: 80%;
-  // }
-  .homepage__heading h1 {
-    font-size: 6vw;
-  }
   .input-group-text {
     padding-right: 0;
   }
@@ -20,7 +14,6 @@
 }
 
 // ACCOMMODATION DETAILS
-
 @media (max-width: 1260px){
   .carouselContainer {
     height: 35%;
@@ -53,6 +46,9 @@
   .form-control {
     font-size: 1em;
   }
+  #booking-confirmation {
+    padding-top: 12rem!important;
+  }
 }
 
 @media (min-width: 991px) {
@@ -61,9 +57,6 @@
         p {
           font-size: .7rem;
         }
-    }
-    #booking-confirmation {
-      padding-top: 16rem;
     }
 }
 
@@ -93,12 +86,17 @@
     float: none!important;
   }
   #other-booking {
-    float: none;
+    float: none!important;
     clear: both;
+    margin-bottom: 2.5rem!important;
   }
   #booking-confirmation {
     padding-top: 12rem;
   }
+  #accommodation-options {
+    height: 100%;
+  }
+
   .card-title {
     font-size: 1.5em;
   }
@@ -135,9 +133,12 @@
   .form-control {
     font-size: 1.2em;
   }
+  .homepage__heading {
+    padding-top: 10.6em!important;
+  }
 }
 
-@media (max-width: 726px ){
+@media (max-width: 726px){
 
   .carouselContainer {
     height: 280px;
@@ -154,7 +155,12 @@
   .booking-subcontainer {
     margin: 0!important;
   }
-
+  .homepage__heading {
+    padding-top: 10.6em!important;
+  }
+  .heading {
+    font-size: 4.2em!important;
+  }
 }
 
 @media (max-width: 589px){
@@ -165,9 +171,27 @@
     margin-left: 25px;
   }
   #booking-confirmation {
-    padding-top: 9em;
+    padding-top: 7em;
   }
   .card-title {
     font-size: 1em;
+  }
+  .homepage__heading {
+    padding-top: 8.6em!important;
+  }
+  .heading {
+    font-size: 3.8em!important;
+  }
+}
+
+@media (max-width: 479px) {
+  .heading {
+    font-size: 2.8em!important;
+  }
+}
+
+@media (max-width: 374px) {
+  .heading {
+    font-size: 2.2em!important;
   }
 }

@@ -6,7 +6,6 @@ $font-family-sans-serif: 'Montserrat', 'sans-serif';
 @import '../bootstrap-4.5.3/scss/bootstrap.scss';
 @import 'images';
 @import 'buttons';
-@import 'mediaQueries';
 
 // INHERITENCE
 text-shadow {
@@ -21,16 +20,35 @@ body {
   height: 100%;
 }
 
+// CSS TRANSITIONS
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 // HOMEPAGE
 .homepage__heading {
   padding-top: 15.6em;
+}
+
+.heading {
+  font-size: 5em;
+  letter-spacing: 3px;
+  @extend text-shadow;
+  padding-bottom: 20px;
   font-family: 'Bebas Neue', 'cursive';
-  h1 {
-    font-size: 5em;
-    letter-spacing: 3px;
-    @extend text-shadow;
-    padding-bottom: 20px;
-  }
 }
 
 .date-guest__box {
@@ -54,6 +72,13 @@ body {
   height: 50px;
 }
 
+.no__result--container {
+  background: rgba(0,0,0,0.85);
+  @extend box-shadow;
+  height: 270px;
+  margin-top: 9em;
+}
+
 
 // ACCOMMODATION OPTIONS PAGE
 .accommodation-options__container {
@@ -63,6 +88,7 @@ body {
 .card {
   @extend box-shadow;
   overflow: hidden;
+
 }
 
 .card-body {
@@ -158,7 +184,9 @@ body {
 }
 
 // BOOKING CONFIRMATION
-
+#booking-confirmation {
+  padding-top: 13.5rem;
+}
 
 .booking-confirmation__container {
   background: rgba(0,0,0,0.8);
@@ -173,3 +201,5 @@ body {
 .spacer {
   width: 1%;
 }
+// IMPORT MEDIA QUERIES
+@import 'mediaQueries';
